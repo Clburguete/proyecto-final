@@ -1,0 +1,49 @@
+<form >
+  <h2> Login or Signup </h2>
+  <div class="col s6">
+    <label for="">What are you?</label>
+    <p>
+      <input name="role" type="radio" id="test1" [(ngModel)]="formInfo.role" value="user" [attr.disabled]="isDisabled?true:null"/>
+      <label for="test1">Investor</label>
+
+      <input name="role" type="radio" id="test2" [(ngModel)]="formInfo.role" value="startup" [attr.disabled]="isDisabled?true:null"/>
+      <label for="test2">Startup</label>
+    </p>
+  </div>
+  <br>
+  <div *ngIf="formInfo.role == 'startup'" class="col s6">
+      <label for="">What area do you work in?</label>
+      <p>
+        <input name="category" type="radio" id="test3" [(ngModel)]="formInfo.category" value="technology" [attr.disabled]="isDisabled?true:null"/>
+        <label for="test3">Technology</label>
+
+        <input name="category" type="radio" id="test4" [(ngModel)]="formInfo.category" value="services" [attr.disabled]="isDisabled?true:null"/>
+        <label for="test4">Services</label>
+
+        <input name="category" type="radio" id="test4" [(ngModel)]="formInfo.category" value="hardware" [attr.disabled]="isDisabled?true:null"/>
+        <label for="test5">Hardware</label>
+      </p>
+      <label> How much $ do you need to raise? </label>
+      <input type="number" [(ngModel)]="formInfo.budget" name="budget"/>
+  <br>
+  </div>
+  <div *ngIf="formInfo.role == 'user'" class="col s6">
+      <label for="">How much are you willing to invest?</label>
+      <input type="number" [(ngModel)]="formInfo.invest" name="invest"/>
+
+
+  <br>
+  </div>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="formInfo.username" name="username"/>
+  <br>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
+
+
+
+  <a (click)="login()" class="waves-effect waves-light btn"> login </a>
+  <a (click)="signup()" class="waves-effect waves-light btn"> signup </a>
+
+</form>
+<p class="error"> {{ error }} </p>

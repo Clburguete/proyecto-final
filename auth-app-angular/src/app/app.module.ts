@@ -5,7 +5,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SessionService } from "./session.service";
 import { FileSelectDirective } from "ng2-file-upload";
+import { MaterializeModule } from 'angular2-materialize';
+import { Paths } from './route-paths';
+import { RouterModule, Routes } from '@angular/router';
+
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+
+
 
 
 
@@ -14,12 +21,13 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     FileSelectDirective,
     LoginComponent,
-    //AddPhoneComponent
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(Paths)
   ],
   providers: [SessionService],
   bootstrap: [AppComponent]

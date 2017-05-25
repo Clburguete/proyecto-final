@@ -4,7 +4,12 @@ const Schema   = mongoose.Schema;
 
 const startupSchema = new Schema({
   username: String,
-  password: String
+  password: String,
+  category: {
+    type: String,
+    enum:["technology", "services", "hardware"]
+  },
+  budget: Number
 }, {
   timestamps: {
     createdAt: "created_at",

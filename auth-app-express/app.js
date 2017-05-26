@@ -8,8 +8,9 @@ var bodyParser = require('body-parser');
 const session         = require("express-session");
 const passport        = require("passport");
 
+const userController = require ("./routes/user-controller");
 const authController  = require("./routes/auth-controller");
-require('./config/passport')(passport);
+
 var cors = require('cors');
 
 const mongoose = require("mongoose");
@@ -40,7 +41,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+require('./config/passport')(passport);
 // Passport config
 app.use(session({
   secret: "passport-local-strategy",
@@ -55,6 +56,7 @@ app.use(passport.session());
 
 
 app.use('/', authController);
+app.use('/', userController);
 
 
 // catch 404 and forward to error handler
@@ -76,7 +78,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  //res.render('error');
 });
 
 module.exports = app;

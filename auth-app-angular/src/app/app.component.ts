@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from './session.service';
+import { SessionService } from './services/session.service';
+
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,9 @@ export class AppComponent implements OnInit {
   constructor(private session: SessionService) { }
 
    ngOnInit() {
-      this.session.isLoggedIn()
-        .subscribe((user) => this.successCb(user));
-      this.session.getLoginEmitter().subscribe(user => this.successCb(user))
-   }
 
+      this.session.getLoginEmitter().subscribe(user => this.user=user)
+   }
    logout() {
      this.session.logout()
      .subscribe(

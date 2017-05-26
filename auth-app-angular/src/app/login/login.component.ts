@@ -1,5 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { SessionService } from '../session.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { SessionService } from '../services/session.service';
 import { Router } from '@angular/router';
 
 
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
 
     user: any;
      formInfo = {
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
          .subscribe(
            (user) => {
              this.successCb(user);
-             this.router.navigate(['']);
+             this.router.navigate(['investors']);
            },
            (err) => this.errorCb(err)
          );

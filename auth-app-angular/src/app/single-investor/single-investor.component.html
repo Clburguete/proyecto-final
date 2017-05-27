@@ -4,7 +4,7 @@
      <p>Willing to invest:</p>
      <h4 class="money"> {{investor.invest | currency:'EUR':true}}</h4>
    </li>
-   <a *ngIf="loggedUser._id === investor._id"class ='waves-effect waves-light btn' [routerLink] = "['/investors',investor._id]">
+   <a *ngIf="loggedUser._id === investor._id"class ='waves-effect waves-light btn' [routerLink] = "['/investors',investor._id,'edit']">
      Edit your profile
    </a>
 

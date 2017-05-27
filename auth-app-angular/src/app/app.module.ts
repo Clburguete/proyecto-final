@@ -23,6 +23,7 @@ import { StartupComponent } from './startups/startups.component';
 import { SingleStartupComponent } from './single-startup/single-startup.component';
 import { StartupdetailComponent } from './startupdetail/startupdetail';
 import { InvestorDashboardComponent } from './investor-dashboard/investor-dashboard.component';
+import { EditinvestorComponent } from './editinvestor/editinvestor.component';
 
 
 
@@ -39,7 +40,8 @@ import { InvestorDashboardComponent } from './investor-dashboard/investor-dashbo
     StartupComponent,
     SingleStartupComponent,
     StartupdetailComponent,
-    InvestorDashboardComponent
+    InvestorDashboardComponent,
+    EditinvestorComponent
   ],
   imports: [
     BrowserModule,

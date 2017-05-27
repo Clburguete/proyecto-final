@@ -17,8 +17,9 @@
         <li><a *ngIf="!loggedUser" [routerLink]="['signup']">Signup</a></li>
         <li><a *ngIf="loggedUser" (click)="logout()">Logout</a></li>
 
-        <li><a  *ngIf="loggedUser" >{{loggedUser.username | capitalize}}</a></li>
-
+        <li><a *ngIf=" loggedUser && loggedUser.role ==='user'" [routerLink] = "['/investors',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
+        <li><a *ngIf="loggedUser && loggedUser.role ==='startup'" [routerLink] = "['/startups',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
+      
       </ul>
 
     </div>

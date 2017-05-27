@@ -110,7 +110,7 @@ authController.post("/login", function(req, res, next) {
       }
       //asigno roles antes de devolver objeto
       let user = Object.assign({role: req.body.role}, req.user.toObject());
-      // console.log("login", user);
+      console.log("login", user);
       res.status(200).json(user);
     });
   })(req, res, next);
@@ -122,7 +122,7 @@ authController.post("/logout", function(req, res) {
 });
 
 authController.get("/loggedin", function(req, res) {
-    console.log("Auth Controller -->"+req.isAuthenticated())
+    console.log("Auth Controller -->"+req.isAuthenticated());
   if(req.isAuthenticated()) {
     return res.status(200).json(req.user);
   }

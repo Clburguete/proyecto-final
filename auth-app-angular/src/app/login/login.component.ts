@@ -20,17 +20,13 @@ export class LoginComponent implements OnInit {
        //category:''
      };
      error: string;
-     privateData: any = '';
-     selectOptions = [];
 
     constructor(private session: SessionService,private router: Router) { }
 
      ngOnInit() {
+      //  this.session.isLoggedIn().subscribe();
+       this.session.getLoginEmitter().subscribe(user => this.user=user)
 
-      //  this.session.isLoggedIn()
-      //    .subscribe(
-      //      (user) => this.successCb(user)
-      //    );
      }
 
      login() {

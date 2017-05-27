@@ -10,12 +10,13 @@ module.exports = function (passport) {
   });
 
   passport.deserializeUser((id, cb) => {
-    User.findOne({ "_id": id }, (err, user) => {
-      if (err) { return cb(err); }
+      User.findOne({ "_id": id }, (err, user) => {
+        console.log("deserialize user--> " + user);
+        if (err) {return cb(err); }
+        cb(null, user);          
+          });
+      });
 
-      cb(null, user);
-    });
-  });
   passport.use(new LocalStrategy(
     {passReqToCallback: true},
     (req, username, password, next) => {
@@ -36,7 +37,8 @@ module.exports = function (passport) {
 
         return next(null, user);
       });
-    } else if (req.body.role === 'startup') {
+     }
+      if (req.body.role === 'startup') {
       Startup.findOne({ username }, (err, startup) => {
         if (err) {
           return next(err);

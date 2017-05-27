@@ -1,0 +1,15 @@
+<div class="row">
+        <div class="col s12 m12">
+          <div class="card darken-1">
+              <span class="card-title"><h2>{{user.username}}</h2></span>
+              <h5 *ngIf ="user.invest">{{user.invest | currency:'EUR':true}}</h5>
+              <h5 *ngIf ="!user.invest">€0</h5>
+
+            <div class="card-action">
+              <a href="#">Contact</a>
+              <a href="#"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a [routerLink]="['../']" class="waves-effect waves-light btn"> Back to full list </a>

@@ -10,6 +10,8 @@ const passport        = require("passport");
 
 const userController = require ("./routes/user-controller");
 const authController  = require("./routes/auth-controller");
+const startupController  = require("./routes/startup-controller");
+
 
 var cors = require('cors');
 
@@ -57,6 +59,7 @@ app.use(passport.session());
 
 app.use('/', authController);
 app.use('/', userController);
+app.use('/',startupController);
 
 
 // catch 404 and forward to error handler

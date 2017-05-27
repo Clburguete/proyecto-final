@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SessionService } from "./services/session.service";
 import { UserService } from "./services/user.service";
+import { StartupService } from "./services/startup.service";
 
 
 
@@ -17,12 +18,13 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { InvestorsComponent } from './investors/investors.component';
 import { SingleInvestorComponent } from './single-investor/single-investor.component';
+import { InvestordetailComponent } from './investordetail/investordetail.component';
+import { StartupComponent } from './startups/startups.component';
+import { SingleStartupComponent } from './single-startup/single-startup.component';
+import { StartupdetailComponent } from './startupdetail/startupdetail';
+
 
 import { CapitalizePipe } from './pipes/capitalize.pipe';
-
-
-
-
 
 
 @NgModule({
@@ -33,7 +35,11 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     LoginComponent,
     SignupComponent,
     InvestorsComponent,
-    SingleInvestorComponent
+    SingleInvestorComponent,
+    InvestordetailComponent,
+    StartupComponent,
+    SingleStartupComponent,
+    StartupdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,8 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
   ],
   providers: [
     SessionService,
-    UserService
+    UserService,
+    StartupService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service'
 import { SessionService } from '../services/session.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-investors',
@@ -11,10 +12,11 @@ export class InvestorsComponent implements OnInit {
   investorList: any[];
   error: string;
   user: any;
-  constructor(private investors : UserService, private session: SessionService) { }
+  constructor(private investors : UserService, private session: SessionService, private router: Router) { }
 
   ngOnInit() {
     this.session.getLoginEmitter().subscribe(user => this.user=user)
+    this.session.isLoggedIn().subscribe();
 
     this.investors.showAll()
       .subscribe(
@@ -22,6 +24,9 @@ export class InvestorsComponent implements OnInit {
         (err) => this.errorCb(err)
       );
   }
+  goToStartups(){
+   this.router.navigate(['startups']);
+ }
 
   errorCb(err) {
     this.error = err;

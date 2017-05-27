@@ -39,7 +39,7 @@ export class SessionService {
   }
 
   logout() {
-    return this.http.post(`${this.BASEURL}/logout`, {withCredentials:true})
+    return this.http.post(`${this.BASEURL}/logout`,{}, {withCredentials:true})
       .map(res => {
         this.user = null;
         this.loginEvent.emit(this.user);

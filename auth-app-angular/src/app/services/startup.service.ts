@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Rx';
 
 
 @Injectable()
-export class UserService {
+export class StartupService {
   BASEURL: String =  "http://localhost:3000";
 
   users:any;
@@ -21,15 +21,15 @@ export class UserService {
   }
 
   showAll() {
-    return this.http.get(`${this.BASEURL}/investors`,{withCredentials:true})
+    return this.http.get(`${this.BASEURL}/startups`,{withCredentials:true})
       .map(res => res.json())
       .map(users => {this.users=users;return this.users})
       .catch((err) => this.handleError(err));
   }
   showOne(id){
-  return this.http.get(`${this.BASEURL}/investors/${id}`, {withCredentials:true})
-    .map(res => res.json())
-    .map(user => {this.user=user;return this.user})
-    .catch((err) => this.handleError(err));
+    return this.http.get(`${this.BASEURL}/startups/${id}`, {withCredentials:true})
+      .map(res => res.json())
+      .map(user => {this.user=user;return this.user})
+      .catch((err) => this.handleError(err));
   }
 }

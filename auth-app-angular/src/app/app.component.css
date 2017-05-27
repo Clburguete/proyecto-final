@@ -1,3 +1,11 @@
 .brand-logo{
   padding-left: 20px;
 }
+nav{
+  background-color: #f9d0d6;
+  box-shadow: none;
+}
+nav a{
+  color: maroon;
+
+}

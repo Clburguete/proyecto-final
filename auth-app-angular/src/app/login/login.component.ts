@@ -34,7 +34,11 @@ export class LoginComponent implements OnInit {
          .subscribe(
            (user) => {
              this.successCb(user);
-             this.router.navigate(['investors']);
+             if(this.formInfo.role ==="user"){
+               this.router.navigate(['startups']);
+             } else if(this.formInfo.role ==="startup"){
+               this.router.navigate(['invboard'])
+             }
            },
            (err) => this.errorCb(err)
          );

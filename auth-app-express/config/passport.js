@@ -13,8 +13,13 @@ module.exports = function (passport) {
       User.findOne({ "_id": id }, (err, user) => {
         console.log("deserialize user--> " + user);
         if (err) {return cb(err); }
-        cb(null, user);          
+        cb(null, user);
           });
+      // Startup.findOne({"_id": id}, (err,startup)=>{
+      //   console.log("deserialize startup--> " + startup);
+      //   if (err) { return cb(err); }
+      //   cb(null,startup);
+      // });
       });
 
   passport.use(new LocalStrategy(

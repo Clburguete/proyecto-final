@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const session         = require("express-session");
 const passport        = require("passport");
+const MongoConnect    = require("connect-mongo")(session);
 
 const userController = require ("./routes/user-controller");
 const authController  = require("./routes/auth-controller");
@@ -24,13 +25,9 @@ var whitelist = [
     'http://localhost:4200',
 ];
 var corsOptions = {
-    origin: function(origin, callback){
-        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
-        callback(null, originIsWhitelisted);
-    },
+    origin: true,
     credentials: true
 };
-app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({limit: '10mb', extended: false }));
@@ -47,15 +44,19 @@ require('./config/passport')(passport);
 // Passport config
 app.use(session({
   secret: "passport-local-strategy",
+  name: 'investNow',
   resave: true,
   saveUninitialized: true,
-  cookie : { httpOnly: true, maxAge: 2419200000 }
+  cookie : { httpOnly: true, maxAge: 600000 },
+  store: new MongoConnect({mongooseConnection: mongoose.connection, ttl: 24 * 60 *60})
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 
+app.use(cors(corsOptions));
+app.options('*',cors(corsOptions));//include before other routes
 
 app.use('/', authController);
 app.use('/', userController);

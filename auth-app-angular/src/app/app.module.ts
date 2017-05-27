@@ -11,7 +11,7 @@ import { SessionService } from "./services/session.service";
 import { UserService } from "./services/user.service";
 import { StartupService } from "./services/startup.service";
 
-
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -22,9 +22,8 @@ import { InvestordetailComponent } from './investordetail/investordetail.compon
 import { StartupComponent } from './startups/startups.component';
 import { SingleStartupComponent } from './single-startup/single-startup.component';
 import { StartupdetailComponent } from './startupdetail/startupdetail';
+import { InvestorDashboardComponent } from './investor-dashboard/investor-dashboard.component';
 
-
-import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 
 @NgModule({
@@ -39,7 +38,8 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     InvestordetailComponent,
     StartupComponent,
     SingleStartupComponent,
-    StartupdetailComponent
+    StartupdetailComponent,
+    InvestorDashboardComponent
   ],
   imports: [
     BrowserModule,

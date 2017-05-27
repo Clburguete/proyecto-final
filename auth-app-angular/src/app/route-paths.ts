@@ -5,7 +5,7 @@ import { InvestorsComponent } from './investors/investors.component';
 import { InvestordetailComponent } from './investordetail/investordetail.component'
 import { StartupComponent } from './startups/startups.component';
 import { StartupdetailComponent } from './startupdetail/startupdetail';
-
+import { InvestorDashboardComponent } from './investor-dashboard/investor-dashboard.component'
 
 
 export const Paths: Routes = [
@@ -16,6 +16,7 @@ export const Paths: Routes = [
   { path: 'investors/:id', component: InvestordetailComponent},
   { path: 'startups', component: StartupComponent},
   { path: 'startups/:id', component: StartupdetailComponent},
+  { path: 'invboard', component: InvestorDashboardComponent}
 
 
 

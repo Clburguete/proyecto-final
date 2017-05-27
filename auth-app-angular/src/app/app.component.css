@@ -2,10 +2,15 @@
   padding-left: 20px;
 }
 nav{
-  background-color: #f9d0d6;
+  background-color: #588c73;
   box-shadow: none;
 }
+.side-nav{
+  background-color: #588c73;
+
+}
 nav a{
-  color: maroon;
+  color: white;
+  font-size: 18px;
 
 }

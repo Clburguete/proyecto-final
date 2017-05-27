@@ -4,21 +4,23 @@
       <a href="#!" class="brand-logo">Logo</a>
       <a materialize="collapsible" href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a *ngIf="!user"[routerLink]="['login']">Login</a></li>
-        <li><a *ngIf="!user"[routerLink]="['signup']">Signup</a></li>
-        <li><a *ngIf="user" (click)="logout()">Logout</a></li>
+        <li><a *ngIf="!loggedUser"[routerLink]="['login']">Login</a></li>
+        <li><a *ngIf="!loggedUser"[routerLink]="['signup']">Signup</a></li>
+        <li><a *ngIf="loggedUser" (click)="logout()">Logout</a></li>
+        <li><a *ngIf=" loggedUser && loggedUser.role ==='user'" [routerLink] = "['/investors',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
+        <li><a *ngIf="loggedUser && loggedUser.role ==='startup'" [routerLink] = "['/startups',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
+        <li><a (click)='islogged()' >is logged in?</a></li>
 
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a *ngIf="!user" [routerLink]="['login']">Login</a></li>
-        <li><a *ngIf="!user" [routerLink]="['signup']">Signup</a></li>
-        <li><a *ngIf="user" (click)="logout()">Logout</a></li>
+        <li><a *ngIf="!loggedUser" [routerLink]="['login']">Login</a></li>
+        <li><a *ngIf="!loggedUser" [routerLink]="['signup']">Signup</a></li>
+        <li><a *ngIf="loggedUser" (click)="logout()">Logout</a></li>
 
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
+        <li><a  *ngIf="loggedUser" >{{loggedUser.username | capitalize}}</a></li>
+
       </ul>
+
     </div>
   </nav>
 <div class="container">

@@ -10,13 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  user:any;
+  loggedUser:any;
   error:any;
   constructor(private session: SessionService, private router: Router) { }
 
    ngOnInit() {
       this.session.isLoggedIn().subscribe();
-      this.session.getLoginEmitter().subscribe(user => this.user=user)
+      this.session.getLoginEmitter().subscribe(user => {
+        this.loggedUser=user;
+        console.log(this.loggedUser)
+      })
    }
    logout() {
      this.session.logout()
@@ -28,13 +31,16 @@ export class AppComponent implements OnInit {
        (err) => this.errorCb(err)
      );
    }
+   islogged(){
+     this.session.isLoggedIn().subscribe(user => console.log(user));
+   }
    errorCb(err) {
      this.error = err;
-     this.user = null;
+     this.loggedUser = null;
    }
 
    successCb(user) {
-     this.user = user;
+     this.loggedUser = user;
      this.error = null;
    }
 

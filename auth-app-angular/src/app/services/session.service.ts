@@ -10,6 +10,7 @@ import { Observable } from 'rxjs/Rx';
 export class SessionService {
   BASEURL: String =  "http://localhost:3000";
   loginEvent = new EventEmitter<any>();
+  loggedUser:any;
   user:any;
 
   constructor(private http: Http) { }
@@ -29,10 +30,13 @@ export class SessionService {
   }
 
   login(user) {
-    return this.http.post(`${this.BASEURL}/login`, user,{withCredentials:true})
+    return this.http.post(`${this.BASEURL}/login`, user, {withCredentials:true})
       .map(res => {
-        this.user = user;
-        this.loginEvent.emit(this.user);
+    
+        console.log("loggeduser: ",this.loggedUser);
+
+        this.loggedUser = res.json();
+        this.loginEvent.emit(this.loggedUser);
         return res.json();
       })
       .catch(this.handleError);
@@ -41,8 +45,8 @@ export class SessionService {
   logout() {
     return this.http.post(`${this.BASEURL}/logout`,{}, {withCredentials:true})
       .map(res => {
-        this.user = null;
-        this.loginEvent.emit(this.user);
+        this.loggedUser = null;
+        this.loginEvent.emit(this.loggedUser);
         return res.json();
       })
       .catch(this.handleError);
@@ -51,7 +55,7 @@ export class SessionService {
   isLoggedIn() {
     return this.http.get(`${this.BASEURL}/loggedin`,{withCredentials:true})
       .map(res => res.json())
-      .map(user => {this.user=user; return user})
+      .map(user => {this.loggedUser=user; return this.loggedUser})
       .catch((err) => this.handleError(err));
   }
 

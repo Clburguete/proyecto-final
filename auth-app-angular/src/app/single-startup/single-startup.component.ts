@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { StartupService } from '../services/startup.service'
 import { Router } from '@angular/router';
+import { SessionService } from '../services/session.service';
+
 
 
 @Component({
@@ -10,10 +12,13 @@ import { Router } from '@angular/router';
 })
 export class SingleStartupComponent implements OnInit {
   @Input() startup: any;
+  loggedUser:any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private session: SessionService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.loggedUser = this.session.loggedUser;
+ }
 
   viewDetails(id, param){
    this.router.navigate(['startups', this.startup.id]);

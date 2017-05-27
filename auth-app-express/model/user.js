@@ -5,7 +5,11 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  invest: Number
+  invest: Number,
+  // role: {
+  //   type: String,
+  //   enum:["startup", "investor"]
+  // }
 }, {
   timestamps: {
     createdAt: "created_at",

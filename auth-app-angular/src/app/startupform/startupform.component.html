@@ -1,0 +1,49 @@
+<form >
+  <h2> What do you need? </h2>
+  <h5> Fill out this simple form and let other users know what you're up to!</h5>
+  <div class="col s6">
+    <label for="">What area do you work in?</label>
+    <p>
+      <input name="category" type="radio" id="category1" [(ngModel)]="StartupForm.category" value="technology" [attr.disabled]="isDisabled?true:null"/>
+      <label for="category1">Technology</label>
+<br>
+      <input name="category" type="radio" id="category2" [(ngModel)]="StartupForm.category" value="services" [attr.disabled]="isDisabled?true:null"/>
+      <label for="category2">Services</label>
+<br>
+      <input name="category" type="radio" id="category3" [(ngModel)]="StartupForm.category" value="hardware" [attr.disabled]="isDisabled?true:null"/>
+      <label for="category3">Hardware</label>
+    </p>
+    <label for="">What are you looking for?</label>
+    <p>
+      <input name="lookingfor" type="radio" id="lookingfor1" [(ngModel)]="StartupForm.lookingfor" value="CTO" [attr.disabled]="isDisabled?true:null"/>
+      <label for="lookingfor1">CTO</label>
+<br>
+      <input name="lookingfor" type="radio" id="lookingfor2" [(ngModel)]="StartupForm.lookingfor" value="Investors" [attr.disabled]="isDisabled?true:null"/>
+      <label for="lookingfor2">Investors</label>
+<br>
+      <input name="lookingfor" type="radio" id="lookingfor3" [(ngModel)]="StartupForm.lookingfor" value="Developers" [attr.disabled]="isDisabled?true:null"/>
+      <label for="lookingfor3">Developers</label>
+<br>
+      <input name="lookingfor" type="radio" id="lookingfor4" [(ngModel)]="StartupForm.lookingfor" value="Counseling" [attr.disabled]="isDisabled?true:null"/>
+      <label for="lookingfor4">Counseling</label>
+    </p>
+  </div>
+  <label for="">How pressing is your need?</label>
+  <p>
+    <input name="investinterest" type="radio" id="return1" [(ngModel)]="StartupForm.investinterest" value="short" [attr.disabled]="isDisabled?true:null"/>
+    <label for="return1">Short Term</label>
+
+    <input name="investinterest" type="radio" id="return2" [(ngModel)]="StartupForm.investinterest" value="medium" [attr.disabled]="isDisabled?true:null"/>
+    <label for="return2">Medium Term</label>
+
+    <input name="investinterest" type="radio" id="return3" [(ngModel)]="StartupForm.investinterest" value="long" [attr.disabled]="isDisabled?true:null"/>
+    <label for="return3">Long Term</label>
+  </p>
+  <br>
+  <label> How much $ do you need? </label>
+  <input type="number" [(ngModel)]="StartupForm.budget" name="budget"/>
+  <br>
+  <a (click)="create()" class="waves-effect waves-light btn"> Create your datasheet </a>
+
+</form>
+<p class="error"> {{ error }} </p>

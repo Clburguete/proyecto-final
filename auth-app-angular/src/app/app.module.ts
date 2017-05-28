@@ -26,6 +26,7 @@ import { StartupdetailComponent } from './startupdetail/startupdetail';
 import { InvestorDashboardComponent } from './investor-dashboard/investor-dashboard.component';
 import { EditinvestorComponent } from './editinvestor/editinvestor.component';
 import { InvestorformComponent } from './investorform/investorform.component';
+import { StartupformComponent } from './startupform/startupform.component';
 
 
 
@@ -44,7 +45,8 @@ import { InvestorformComponent } from './investorform/investorform.component';
     StartupdetailComponent,
     InvestorDashboardComponent,
     EditinvestorComponent,
-    InvestorformComponent
+    InvestorformComponent,
+    StartupformComponent
   ],
   imports: [
     BrowserModule,

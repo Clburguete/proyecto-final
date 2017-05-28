@@ -8,15 +8,21 @@ import { StartupdetailComponent } from './startupdetail/startupdetail';
 import { InvestorDashboardComponent } from './investor-dashboard/investor-dashboard.component'
 import { EditinvestorComponent } from './editinvestor/editinvestor.component'
 import { InvestorformComponent } from './investorform/investorform.component';
+import { StartupformComponent } from './startupform/startupform.component';
+
 
 export const Paths: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login',  component: LoginComponent },
   { path: 'signup',  component: SignupComponent},
+
   { path:'investordata', component: InvestorformComponent},
+  { path:'startupdata', component: StartupformComponent},
+
   { path: 'investors', component: InvestorsComponent},
   { path: 'investors/:id', component: InvestordetailComponent},
   { path: 'investors/:id/edit', component: EditinvestorComponent},
+
   { path: 'startups', component: StartupComponent},
   { path: 'startups/:id', component: StartupdetailComponent},
   { path: 'invboard', component: InvestorDashboardComponent}

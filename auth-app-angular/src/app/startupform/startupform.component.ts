@@ -4,20 +4,21 @@ import { Router } from '@angular/router';
 import { DatasheetsService } from '../services/datasheets.service'
 
 @Component({
-  selector: 'app-investorform',
-  templateUrl: './investorform.component.html',
-  styleUrls: ['./investorform.component.css']
+  selector: 'app-startupform',
+  templateUrl: './startupform.component.html',
+  styleUrls: ['./startupform.component.css']
 })
-export class InvestorformComponent implements OnInit {
+export class StartupformComponent implements OnInit {
 
-      loggedUser: any;
-       InvestorForm = {
-         connections: '',
-         interests: '',
-         budget: '',
-         investreturn:''
-       };
-       error: string;
+
+        loggedUser: any;
+         StartupForm = {
+           category: '',
+           lookingfor: '',
+           investinterest: '',
+           budget:''
+         };
+         error: string;
   constructor(private session: SessionService,private router: Router, private data: DatasheetsService) { }
 
   ngOnInit() {
@@ -25,10 +26,8 @@ export class InvestorformComponent implements OnInit {
     this.session.getLoginEmitter().subscribe(user => this.loggedUser=user,console.log(this.loggedUser))
 
   }
-
   create(){
-    //this.session.isLoggedIn().subscribe(res=>console.log(res))
-    this.data.createInvestForm(this.InvestorForm)
+    this.data.createStartupForm(this.StartupForm)
       .subscribe(
         (data) => {
           this.successCb(data);

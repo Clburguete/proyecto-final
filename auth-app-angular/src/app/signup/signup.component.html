@@ -1,5 +1,6 @@
 <form >
   <h2> Signup </h2>
+  <p class="error"> {{ error }} </p>
   <div class="col s6">
     <label for="">What are you?</label>
     <p>
@@ -11,31 +12,7 @@
     </p>
   </div>
   <br>
-  <!--
-  <div *ngIf="formInfo.role == 'startup'" class="col s6">
-      <label for="">What area do you work in?</label>
-      <p>
-        <input name="category" type="radio" id="test3" [(ngModel)]="formInfo.category" value="technology" [attr.disabled]="isDisabled?true:null"/>
-        <label for="test3">Technology</label>
 
-        <input name="category" type="radio" id="test4" [(ngModel)]="formInfo.category" value="services" [attr.disabled]="isDisabled?true:null"/>
-        <label for="test4">Services</label>
-
-        <input name="category" type="radio" id="test4" [(ngModel)]="formInfo.category" value="hardware" [attr.disabled]="isDisabled?true:null"/>
-        <label for="test5">Hardware</label>
-      </p>
-      <label> How much $ do you need to raise? </label>
-      <input type="number" [(ngModel)]="formInfo.budget" name="budget"/>
-  <br>
-  </div>
-  <div *ngIf="formInfo.role == 'user'" class="col s6">
-      <label for="">How much are you willing to invest?</label>
-      <input type="number" [(ngModel)]="formInfo.invest" name="invest"/>
-
-
-  <br>
-</div>
--->
   <label> Username </label>
   <input type="text" [(ngModel)]="formInfo.username" name="username"/>
   <br>
@@ -48,4 +25,3 @@
   <a (click)="signup()" class="waves-effect waves-light btn"> signup </a>
 
 </form>
-<p class="error"> {{ error }} </p>

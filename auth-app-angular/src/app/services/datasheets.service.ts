@@ -16,7 +16,7 @@ handleError(e) {
 
 createInvestForm(form){
   return this.http.post(`${this.BASEURL}/signup/investordata`, form)
-    .map(res => res.json())
+    .map(res => {res.json()})
     .catch(this.handleError)
 }
 

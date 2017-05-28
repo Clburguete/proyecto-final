@@ -41,6 +41,7 @@ export class InvestorformComponent implements OnInit {
 
   successCb(data) {
     this.data = data;
+    console.log(data);
     this.error = null;
 
   }

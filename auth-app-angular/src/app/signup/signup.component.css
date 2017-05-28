@@ -4,3 +4,7 @@ h2{
 a{
   background-color: #588c73;
 }
+.error{
+  font-size: 25px;
+  font-weight: bold;
+}

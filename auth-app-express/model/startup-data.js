@@ -10,7 +10,7 @@ const StartupDataSchema = new Schema({
     enum:["technology", "services", "hardware"]
   },
     lookingfor: {
-      type:[String],
+      type:String,
       enum: ["CTO", "CDO", "Investors", "Developers","Counseling"]
     },
     investinterest:{

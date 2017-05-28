@@ -11,6 +11,7 @@ const MongoConnect    = require("connect-mongo")(session);
 
 const userController = require ("./routes/user-controller");
 const authController  = require("./routes/auth-controller");
+const dataController = require("./routes/datasheets-controller");
 
 
 var cors = require('cors');
@@ -59,6 +60,7 @@ app.options('*',cors(corsOptions));//include before other routes
 
 app.use('/', authController);
 app.use('/', userController);
+app.use('/', dataController);
 
 
 // catch 404 and forward to error handler

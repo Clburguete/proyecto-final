@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
                 (user) => {
                   this.successCb(user);
                   if(this.formInfo.role ==="investor"){
-                    this.router.navigate(['startups']);
+                    this.router.navigate(['investordata']);
                   } else if(this.formInfo.role ==="startup"){
                     this.router.navigate(['invboard'])
                   }

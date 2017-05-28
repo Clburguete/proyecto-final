@@ -6,7 +6,7 @@ const InversionSchema = new Schema({
 
   connections: {
     type: String,
-    enum:["CTO", "CDO", "Investors", "Developers","Counseling"]
+    enum:["CTO", "Investors", "Developers","Counseling"]
   },
   interests: {
     type: String,
@@ -24,5 +24,5 @@ const InversionSchema = new Schema({
   }
 });
 
-const StartupData = mongoose.model("Inversion", InversionSchema);
-module.exports = InversionSchema;
+const InversionData = mongoose.model("Inversion", InversionSchema);
+module.exports = InversionData;

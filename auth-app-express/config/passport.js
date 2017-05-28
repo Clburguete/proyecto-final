@@ -1,7 +1,6 @@
 /*jshint esversion: 6*/
 const LocalStrategy  = require('passport-local').Strategy;
 const User           = require('../model/user');
-const Startup        = require('../model/startup');
 const bcrypt       = require("bcrypt");
 
 module.exports = function (passport) {
@@ -15,18 +14,12 @@ module.exports = function (passport) {
         if (err) {return cb(err); }
         cb(null, user);
           });
-      // Startup.findOne({"_id": id}, (err,startup)=>{
-      //   console.log("deserialize startup--> " + startup);
-      //   if (err) { return cb(err); }
-      //   cb(null,startup);
-      // });
       });
 
   passport.use(new LocalStrategy(
     {passReqToCallback: true},
     (req, username, password, next) => {
       console.log(req.body);
-    if (req.body.role === "user") {
       User.findOne({ username }, (err, user) => {
         if (err) {
           return next(err);
@@ -42,24 +35,5 @@ module.exports = function (passport) {
 
         return next(null, user);
       });
-     }
-      if (req.body.role === 'startup') {
-      Startup.findOne({ username }, (err, startup) => {
-        if (err) {
-          return next(err);
-        }
-
-        if (!startup) {
-          return next(null, false, { message: "Incorrect username" });
-        }
-
-        if (!bcrypt.compareSync(password, startup.password)) {
-          return next(null, false, { message: "Incorrect password" });
-        }
-        return next(null, startup);
-      });
-    }
   }));
-
-
 };

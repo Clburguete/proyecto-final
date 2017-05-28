@@ -38,7 +38,18 @@ export class SignupComponent implements OnInit {
        console.log(this.formInfo);
        this.session.signup(this.formInfo)
          .subscribe(
-           (user) => {this.successCb(user),this.router.navigate([''])},
+           (user) => {this.successCb(user), this.session.login(this.formInfo)
+              .subscribe(
+                (user) => {
+                  this.successCb(user);
+                  if(this.formInfo.role ==="investor"){
+                    this.router.navigate(['startups']);
+                  } else if(this.formInfo.role ==="startup"){
+                    this.router.navigate(['invboard'])
+                  }
+                },
+                (err) => this.errorCb(err)
+              );},
            (err) => this.errorCb(err)
          );
      }
@@ -51,5 +62,6 @@ export class SignupComponent implements OnInit {
      successCb(user) {
        this.user = user;
        this.error = null;
+
      }
   }

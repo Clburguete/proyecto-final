@@ -5,7 +5,6 @@ const passport = require("passport");
 
 // Our user model
 const User           = require("../model/user");
-const Startup        = require("../model/startup");
 
 // Bcrypt let us encrypt passwords
 const bcrypt         = require("bcrypt");
@@ -25,7 +24,6 @@ authController.post("/signup", (req, res, next) => {
     res.status(400).json({ message: "Provide username and password" });
     return;
   }
-  if (role === "user") {
 
     User.findOne({ username }, "username", (err, user) => {
       if (user !== null) {
@@ -35,11 +33,10 @@ authController.post("/signup", (req, res, next) => {
 
       var salt     = bcrypt.genSaltSync(bcryptSalt);
       var hashPass = bcrypt.hashSync(password, salt);
-      const { invest } = req.body;
       var newUser = User({
         username,
         password: hashPass,
-        invest
+        role
       });
 
       newUser.save((err) => {
@@ -58,42 +55,6 @@ authController.post("/signup", (req, res, next) => {
         }
       });
     });
-  }else if (role === "startup") {
-    Startup.findOne({ username }, "username", (err, startup) => {
-      if (startup !== null) {
-        res.status(400).json({ message: "The username already exists" });
-        return;
-      }
-
-      var salt     = bcrypt.genSaltSync(bcryptSalt);
-      var hashPass = bcrypt.hashSync(password, salt);
-
-      const {category, budget} = req.body;
-
-      var newStartup = Startup({
-        username,
-        password: hashPass,
-        category,
-        budget
-      });
-
-      newStartup.save((err) => {
-        if (err) {
-          res.status(400).json({ message: "Something went wrong" });
-        } else {
-          req.login(newStartup, function(err) {
-            if (err) {
-              console.log(err);
-              return res.status(500).json({
-                message: 'something went wrong :('
-              });
-            }
-            res.status(200).json(req.startup);
-          });
-        }
-      });
-    });
-  }
 });
 
 authController.post("/login", function(req, res, next) {
@@ -108,9 +69,7 @@ authController.post("/login", function(req, res, next) {
           message: 'something went wrong :('
         });
       }
-      //asigno roles antes de devolver objeto
-      let user = Object.assign({role: req.body.role}, req.user.toObject());
-      console.log("login", user);
+
       res.status(200).json(user);
     });
   })(req, res, next);

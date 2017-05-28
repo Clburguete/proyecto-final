@@ -3,5 +3,7 @@
            Investors
        </a>
   <div *ngFor= "let startup of startupList">
-    <single-startup [startup]='startup'></single-startup>
+    <div class="row" >
+      <single-startup  [startup]='startup'></single-startup>
+    </div>
   </div>

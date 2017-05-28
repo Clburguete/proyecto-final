@@ -5,11 +5,14 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
-  invest: Number,
-  // role: {
-  //   type: String,
-  //   enum:["startup", "investor"]
-  // }
+  role: {
+    type: String,
+    enum: ["startup", "investor"],
+  },
+  datasheets: [{
+    kind: String,
+    item: { type: Schema.Types.ObjectId, refPath: 'datasheets.kind'}
+  }]
 }, {
   timestamps: {
     createdAt: "created_at",

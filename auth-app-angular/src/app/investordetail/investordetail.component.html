@@ -8,7 +8,7 @@
         <div class="col s12 m12">
           <div class="card darken-1">
               <span class="card-title"><h2>{{user.username}}</h2></span>
-              <h5 *ngIf ="user.invest">{{user.invest | currency:'EUR':true}}</h5>
+              <h5 *ngIf ="user.invest">{{user.role}}</h5>
               <h5 *ngIf ="!user.invest">€0</h5>
 
             <div class="card-action">

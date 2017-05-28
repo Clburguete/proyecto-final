@@ -12,8 +12,6 @@ export class EditinvestorComponent implements OnInit {
   error:any;
   formInfo = {
     invest: '',
-
-    //category:''
   };
   constructor(private session: SessionService) { }
 

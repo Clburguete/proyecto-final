@@ -2,11 +2,13 @@
 const express        = require("express");
 const userController = express.Router();
 const passport = require("passport");
+const authChecker = require("../authCheckerMiddleWare");
+
 
 // Our user model
 const User           = require("../model/user");
 
-userController.get("/investors",function(req,res) {
+userController.get("/investors", authChecker ,function(req,res) {
   // if(req.isAuthenticated()){
     User.find((err, users)=>{
       return res.status(200).json(users);
@@ -17,7 +19,7 @@ userController.get("/investors",function(req,res) {
 
 });
 
-userController.get("/investors/:id", function(req,res){
+userController.get("/investors/:id", authChecker, function(req,res){
   userId = req.params.id;
   // if(req.isAuthenticated()){
     User.findById(userId,(err, user)=>{

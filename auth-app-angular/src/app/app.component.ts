@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
         this.loggedUser=user;
         console.log(this.loggedUser)
       })
+    
    }
    logout() {
      this.session.logout()

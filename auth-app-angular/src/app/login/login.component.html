@@ -1,9 +1,9 @@
 <form >
-  <h2> Login or Signup </h2>
+  <h2> Login</h2>
   <div class="col s6">
     <label for="">What are you?</label>
     <p>
-      <input name="role" type="radio" id="test1" [(ngModel)]="formInfo.role" value="user" [attr.disabled]="isDisabled?true:null"/>
+      <input name="role" type="radio" id="test1" [(ngModel)]="formInfo.role" value="investor" [attr.disabled]="isDisabled?true:null"/>
       <label for="test1">Investor</label>
 
       <input name="role" type="radio" id="test2" [(ngModel)]="formInfo.role" value="startup" [attr.disabled]="isDisabled?true:null"/>

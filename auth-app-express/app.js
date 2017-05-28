@@ -11,7 +11,6 @@ const MongoConnect    = require("connect-mongo")(session);
 
 const userController = require ("./routes/user-controller");
 const authController  = require("./routes/auth-controller");
-const startupController  = require("./routes/startup-controller");
 
 
 var cors = require('cors');
@@ -47,7 +46,7 @@ app.use(session({
   name: 'investNow',
   resave: true,
   saveUninitialized: true,
-  cookie : { httpOnly: true, maxAge: 600000 },
+  cookie : { httpOnly: true, maxAge: 60000 },
   store: new MongoConnect({mongooseConnection: mongoose.connection, ttl: 24 * 60 *60})
 }));
 
@@ -60,7 +59,6 @@ app.options('*',cors(corsOptions));//include before other routes
 
 app.use('/', authController);
 app.use('/', userController);
-app.use('/',startupController);
 
 
 // catch 404 and forward to error handler

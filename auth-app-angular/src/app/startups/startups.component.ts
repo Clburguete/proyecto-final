@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StartupService } from '../services/startup.service'
+import { UserService } from '../services/user.service'
 import { SessionService } from '../services/session.service'
 
 @Component({
@@ -11,7 +11,7 @@ export class StartupComponent implements OnInit {
   startupList: any[];
   error: string;
   user: any;
-  constructor(private startups : StartupService, private session: SessionService) { }
+  constructor(private startups : UserService, private session: SessionService) { }
 
   ngOnInit() {
     this.user=this.session.user

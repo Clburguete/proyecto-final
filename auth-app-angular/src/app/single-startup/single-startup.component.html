@@ -3,10 +3,10 @@
   <ul class= "collection with-header">
     <li class="collection-header"><h5>{{startup.username | capitalize}}</h5></li>
     <li class="collection-header"><h5>{{startup.role | capitalize}}</h5></li>
-    <a *ngIf="loggedUser._id === startup._id"class ='waves-effect waves-light btn' [routerLink] = "['/startups',startup._id]">
+    <a *ngIf="loggedUser._id === startup._id"class ='waves-effect waves-light btn' [routerLink]="['/startups',startup._id]">
     Edit your profile
   </a>
-  <a class ='waves-effect waves-light btn' [routerLink] = "['/startups',startup._id]">
+  <a class ='waves-effect waves-light btn' [routerLink]="['/startups',startup._id]">
     Details
   </a>
 </ul>

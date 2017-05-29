@@ -18,6 +18,7 @@ export class StartupformComponent implements OnInit {
            investinterest: '',
            budget:''
          };
+         isDisabled: boolean;
          error: string;
   constructor(private session: SessionService,private router: Router, private data: DatasheetsService) { }
 

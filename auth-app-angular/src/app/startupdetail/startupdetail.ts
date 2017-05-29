@@ -11,17 +11,18 @@ import { StartupService } from '../services/startup.service';
 export class StartupdetailComponent implements OnInit {
   startupId: string;
   error:any;
-  constructor(private route: ActivatedRoute, private startup: StartupService) { }
+  
+  constructor(private route: ActivatedRoute, public startup: StartupService) { }
 
   ngOnInit() {
     this.route.params
      .subscribe((params) => {
        this.startupId = params['id'];
        this.startup.showOne(this.startupId)
-        .subscribe(
-          (response) => {this.successCb(response);console.log(response);},
-          (err) => this.errorCb(err)
-        )
+                   .subscribe(
+                     (response) => {this.successCb(response)},
+                     (err) => {this.errorCb(err)}
+                   )
    });
 
   }

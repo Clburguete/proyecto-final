@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
        role: '',
        //category:''
      };
+     isDisabled: boolean;
+
      error: string;
 
     constructor(private session: SessionService,private router: Router) { }

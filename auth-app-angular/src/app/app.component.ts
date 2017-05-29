@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from './services/session.service';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,12 +10,13 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   loggedUser:any;
   error:any;
-  constructor(private session: SessionService, private router: Router) { }
+
+  constructor(public session: SessionService, public router: Router) { }
 
    ngOnInit() {
-      this.session.getLoginEmitter().subscribe(user => {
+      this.session.getLoginEmitter().subscribe( user => {
         this.loggedUser=user;
-        console.log(this.loggedUser)
+        console.log(this.loggedUser);
       })
       this.session.isLoggedIn().subscribe(user => {
         this.loggedUser=user;

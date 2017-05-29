@@ -20,7 +20,8 @@ export class SignupComponent implements OnInit {
      };
      error: string;
      privateData: any = '';
-     selectOptions = [];
+     isDisabled: boolean;
+
 
     constructor(private session: SessionService,private router: Router) { }
 

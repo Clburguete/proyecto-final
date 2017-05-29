@@ -11,12 +11,11 @@ export class StartupComponent implements OnInit {
   startupList: any[];
   error: string;
   user: any;
-  constructor(private startups : UserService, private session: SessionService) { }
+
+  constructor(public startups: UserService, public session: SessionService) { }
 
   ngOnInit() {
     this.user=this.session.user
-
-
 
     this.startups.showAll()
       .subscribe(

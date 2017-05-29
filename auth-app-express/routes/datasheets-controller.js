@@ -80,28 +80,6 @@ datasheetController.post("/signup/startupdata", (req, res, next) => {
         }
       });
 });
-//
-// datasheetController.post("/logout", function(req, res) {
-//   req.logout();
-//   res.status(200).json({ message: 'Success' });
-// });
-//
-// datasheetController.get("/loggedin", function(req, res) {
-//     console.log("Auth Controller -->"+req.isAuthenticated());
-//   if(req.isAuthenticated()) {
-//     return res.status(200).json(req.user);
-//   }
-//
-//   return res.status(403).json({ message: 'Unauthorized' });
-// });
-//
-// datasheetController.get("/private", (req, res) => {
-//   console.log(req.session);
-//   if(req.isAuthenticated()) {
-//     return res.json({ message: 'This is a private message' });
-//   }
-//
-//   return res.status(403).json({ message: 'Unauthorized' });
-// });
+
 
 module.exports = datasheetController;

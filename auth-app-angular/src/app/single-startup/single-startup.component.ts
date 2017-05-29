@@ -11,16 +11,12 @@ import { SessionService } from '../services/session.service';
 })
 export class SingleStartupComponent implements OnInit {
   @Input() startup: any;
-  loggedUser:any;
+  loggedUser: any;
 
-  constructor(private router: Router, private session: SessionService) { }
+  constructor(public session: SessionService) { }
 
   ngOnInit() {
     this.loggedUser = this.session.loggedUser;
- }
-
-  viewDetails(id, param){
-   this.router.navigate(['startups', this.startup.id]);
- }
+  }
 
 }

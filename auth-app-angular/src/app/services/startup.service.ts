@@ -4,14 +4,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 
-
-
 @Injectable()
 export class StartupService {
   BASEURL: String =  "http://localhost:3000";
 
   users:any;
   user:any;
+  username: string;
 
   constructor(private http: Http) { }
 
@@ -26,7 +25,7 @@ export class StartupService {
       .map(users => {this.users=users;return this.users})
       .catch((err) => this.handleError(err));
   }
-  showOne(id){
+  showOne (id) {
     return this.http.get(`${this.BASEURL}/startups/${id}`, {withCredentials:true})
       .map(res => res.json())
       .map(user => {this.user=user;return this.user})

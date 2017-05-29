@@ -17,8 +17,11 @@ export class InvestorformComponent implements OnInit {
     budget: '',
     investreturn: ''
   };
+  isDisabled: boolean;
   error: string;
-  constructor(private session: SessionService, private router: Router, private data: DatasheetsService) { }
+  data: any;
+
+  constructor(private session: SessionService, private router: Router, private dataService: DatasheetsService) { }
 
   ngOnInit() {
     // this.session.getLoginEmitter().subscribe(user => this.loggedUser=user)
@@ -29,12 +32,13 @@ export class InvestorformComponent implements OnInit {
 
   create() {
     //this.session.isLoggedIn().subscribe(res=>console.log(res))
-    this.data.createInvestForm(this.InvestorForm)
+    this.dataService.createInvestForm(this.InvestorForm)
       .subscribe(
       (data) => this.successCb(data),
       (err) => this.errorCb(err)
       )
   }
+
   errorCb(err) {
     console.log(err);
     this.error = err;

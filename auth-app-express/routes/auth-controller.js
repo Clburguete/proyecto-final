@@ -50,7 +50,8 @@ authController.post("/signup", (req, res, next) => {
                 message: 'something went wrong :('
               });
             }
-            res.status(200).json(req.user);
+            console.log("USER IS LOGGED IN CORRECT");
+            res.status(200).json(newUser);
           });
         }
       });
@@ -81,11 +82,9 @@ authController.post("/logout", function(req, res) {
 });
 
 authController.get("/loggedin", function(req, res) {
-    console.log("Auth Controller -->"+req.isAuthenticated());
   if(req.isAuthenticated()) {
     return res.status(200).json(req.user);
   }
-
   return res.status(403).json({ message: 'Unauthorized' });
 });
 
@@ -97,5 +96,7 @@ authController.get("/private", (req, res) => {
 
   return res.status(403).json({ message: 'Unauthorized' });
 });
+
+
 
 module.exports = authController;

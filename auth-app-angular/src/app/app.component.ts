@@ -15,12 +15,14 @@ export class AppComponent implements OnInit {
   constructor(private session: SessionService, private router: Router) { }
 
    ngOnInit() {
-      this.session.isLoggedIn().subscribe();
       this.session.getLoginEmitter().subscribe(user => {
         this.loggedUser=user;
         console.log(this.loggedUser)
       })
-    
+      this.session.isLoggedIn().subscribe(user => {
+        this.loggedUser=user;
+        console.log(this.loggedUser)
+      });
    }
    logout() {
      this.session.logout()

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class SessionService {
+  options = {withCredentials:true};
   BASEURL: String =  "http://localhost:3000";
   loginEvent = new EventEmitter<any>();
   loggedUser:any;
@@ -24,17 +25,14 @@ export class SessionService {
   }
 
   signup(user) {
-    return this.http.post(`${this.BASEURL}/signup`, user)
+    return this.http.post(`${this.BASEURL}/signup`, user, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }
 
   login(user) {
-    return this.http.post(`${this.BASEURL}/login`, user, {withCredentials:true})
+    return this.http.post(`${this.BASEURL}/login`, user, this.options)
       .map(res => {
-    
-        console.log("loggeduser: ",this.loggedUser);
-
         this.loggedUser = res.json();
         this.loginEvent.emit(this.loggedUser);
         return res.json();
@@ -43,7 +41,7 @@ export class SessionService {
   }
 
   logout() {
-    return this.http.post(`${this.BASEURL}/logout`,{}, {withCredentials:true})
+    return this.http.post(`${this.BASEURL}/logout`,{}, this.options)
       .map(res => {
         this.loggedUser = null;
         this.loginEvent.emit(this.loggedUser);
@@ -53,14 +51,14 @@ export class SessionService {
   }
 
   isLoggedIn() {
-    return this.http.get(`${this.BASEURL}/loggedin`,{withCredentials:true})
+    return this.http.get(`${this.BASEURL}/loggedin`, this.options)
       .map(res => res.json())
       .map(user => {this.loggedUser=user; return this.loggedUser})
       .catch((err) => this.handleError(err));
   }
 
   getPrivateData() {
-    return this.http.get(`${this.BASEURL}/private`,{withCredentials:true})
+    return this.http.get(`${this.BASEURL}/private`, this.options)
       .map(res => res.json())
       .catch(this.handleError);
   }

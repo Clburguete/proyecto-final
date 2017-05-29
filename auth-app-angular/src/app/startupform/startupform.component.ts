@@ -22,9 +22,8 @@ export class StartupformComponent implements OnInit {
   constructor(private session: SessionService,private router: Router, private data: DatasheetsService) { }
 
   ngOnInit() {
-    this.session.isLoggedIn().subscribe(user=>this.loggedUser = user);
-    this.session.getLoginEmitter().subscribe(user => this.loggedUser=user,console.log(this.loggedUser))
-
+    this.session.getLoginEmitter().subscribe(user => this.loggedUser = user)
+    this.session.isLoggedIn().subscribe();
   }
   create(){
     this.data.createStartupForm(this.StartupForm)
@@ -42,7 +41,7 @@ export class StartupformComponent implements OnInit {
 
   successCb(data) {
     this.data = data;
-    console.log("Data-->",this.data);//porque no sale en ningun lado?
+    console.log("Data-->"+this.data);//porque no sale en ningun lado?
                                      // si el formulario se esta creando en mongoDb?
     this.error = null;
 

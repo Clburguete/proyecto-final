@@ -21,15 +21,12 @@ mongoose.connect("mongodb://localhost/passport-local");
 
 var app = express();
 
-var whitelist = [
-    'http://localhost:4200',
-];
 var corsOptions = {
     origin: true,
     credentials: true
 };
+app.use(cors(corsOptions));
 
-app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({limit: '10mb', extended: false }));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,9 +34,12 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
 require('./config/passport')(passport);
 // Passport config
 app.use(session({
@@ -54,9 +54,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-app.use(cors(corsOptions));
-app.options('*',cors(corsOptions));//include before other routes
 
 app.use('/', authController);
 app.use('/', userController);

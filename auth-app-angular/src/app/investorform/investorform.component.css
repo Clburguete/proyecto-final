@@ -4,3 +4,7 @@ h2{
 a{
   background-color: #588c73;
 }
+[type="radio"]:checked + label:after{
+  background-color: #f9d0d6;
+  border: #f9d0d6;
+}

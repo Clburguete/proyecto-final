@@ -8,8 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SessionService } from "./services/session.service";
 import { UserService } from "./services/user.service";
-import { StartupService } from "./services/startup.service";
 import { DatasheetsService} from "./services/datasheets.service"
+import { MessageService} from "./services/messages.service"
 
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 
@@ -26,6 +26,7 @@ import { InvestorDashboardComponent } from './investor-dashboard/investor-dashbo
 import { EditinvestorComponent } from './editinvestor/editinvestor.component';
 import { InvestorformComponent } from './investorform/investorform.component';
 import { StartupformComponent } from './startupform/startupform.component';
+import { NewMessageComponent } from './new-message/new-message.component';
 
 
 
@@ -44,7 +45,8 @@ import { StartupformComponent } from './startupform/startupform.component';
     InvestorDashboardComponent,
     EditinvestorComponent,
     InvestorformComponent,
-    StartupformComponent
+    StartupformComponent,
+    NewMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +57,8 @@ import { StartupformComponent } from './startupform/startupform.component';
   providers: [
     SessionService,
     UserService,
-    StartupService,
-    DatasheetsService
+    DatasheetsService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

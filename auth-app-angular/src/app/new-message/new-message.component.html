@@ -1,0 +1,13 @@
+
+  <div class="message-container">
+    <h2 *ngIf="receiver">What do you want to tell <span class="username">{{receiver.username}}</span> ?</h2>
+    <div class="input-field col s12">
+      <label for="message">Type your message</label>
+      <br>
+      <br><br><br>
+      <input id="message"[(ngModel)]="content" class="materialize-textarea">
+    </div>
+
+  </div>
+
+<a (click)="create()" class="waves-effect waves-light btn"> Submit Message </a>

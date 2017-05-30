@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
+import { DatasheetsService } from '../services/datasheets.service'
 
 
 @Component({
@@ -10,17 +11,36 @@ import { SessionService } from '../services/session.service';
 export class EditinvestorComponent implements OnInit {
   loggedUser:any;
   error:any;
-  formInfo = {
-    invest: '',
+  InvestorForm = {
+    connections: '',
+    interests: '',
+    budget: '',
+    investreturn: ''
   };
-  constructor(private session: SessionService) { }
+  data:any;
+  constructor(private session: SessionService, private dataService: DatasheetsService) { }
 
   ngOnInit() {
-    this.session.isLoggedIn().subscribe();
-    this.session.getLoginEmitter().subscribe(user => {
-      this.loggedUser=user;
-      console.log(this.loggedUser)
-    })
+    this.session.getLoginEmitter().subscribe(user => this.loggedUser=user)
+    this.loggedUser = this.session.loggedUser;
+    console.log("USERRRRRR", this.loggedUser)
   }
 
+update(){
+  this.dataService.investmentUpdate(this.InvestorForm, this.loggedUser._id)
+    .subscribe(
+      (data)=> this.successCb(data),
+      (err)=> this.errorCb(err)
+    )
+}
+errorCb(err) {
+  this.error = err;
+  this.data = null;
+}
+
+successCb(data) {
+  this.data = data;
+  this.error = null;
+
+}
 }

@@ -1,12 +1,33 @@
-h2{
+.col{
   padding: 15px;
 }
 
-h5{
+h2 {
+  color: maroon;
   padding: 15px;
+  font-weight: 600;
+}
+.money{
+  font-size: 1.75rem;
+  color: #36654e;
+}
+h5{
+  padding: 1.44rem;
+  font-weight: lighter;
 }
 .waves-effect{
   float: right;
   background-color: #e1d1d1;
   color: maroon;
+}
+
+h4{
+  font-weight: normal;
+  display: inline;
+  text-align: right;
+  padding-left: 15px;
+}
+label{
+  font-size: 17px;
+  padding-left: 15px;
 }

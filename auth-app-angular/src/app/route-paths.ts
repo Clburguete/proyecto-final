@@ -9,6 +9,7 @@ import { InvestorDashboardComponent } from './investor-dashboard/investor-dashb
 import { EditinvestorComponent } from './editinvestor/editinvestor.component'
 import { InvestorformComponent } from './investorform/investorform.component';
 import { StartupformComponent } from './startupform/startupform.component';
+import { NewMessageComponent } from './new-message/new-message.component';
 
 
 export const Paths: Routes = [
@@ -25,7 +26,9 @@ export const Paths: Routes = [
 
   { path: 'startups', component: StartupComponent},
   { path: 'startups/:id', component: StartupdetailComponent},
-  { path: 'invboard', component: InvestorDashboardComponent}
+  { path: 'invboard', component: InvestorDashboardComponent},
+
+  { path: 'message/:id', component: NewMessageComponent}
 
 
 

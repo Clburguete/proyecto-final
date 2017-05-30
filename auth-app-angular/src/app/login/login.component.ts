@@ -16,8 +16,7 @@ export class LoginComponent implements OnInit {
      formInfo = {
        username: '',
        password: '',
-       role: '',
-       //category:''
+  
      };
      isDisabled: boolean;
 
@@ -36,18 +35,11 @@ export class LoginComponent implements OnInit {
          .subscribe(
            (user) => {
              this.successCb(user);
-             if(this.formInfo.role ==="investor"){
-               this.router.navigate(['startups']);
-             } else if(this.formInfo.role ==="startup"){
-               this.router.navigate(['invboard'])
-             }
+
            },
            (err) => this.errorCb(err)
          );
      }
-
-
-
 
      errorCb(err) {
        this.error = err;
@@ -56,6 +48,11 @@ export class LoginComponent implements OnInit {
 
      successCb(user) {
        this.user = user;
+       if(this.user.role ==="investor"){
+         this.router.navigate(['startups']);
+       } else if(this.user.role ==="startup"){
+         this.router.navigate(['invboard'])
+       }
        this.error = null;
      }
   }

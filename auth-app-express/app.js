@@ -12,6 +12,7 @@ const MongoConnect    = require("connect-mongo")(session);
 const userController = require ("./routes/user-controller");
 const authController  = require("./routes/auth-controller");
 const dataController = require("./routes/datasheets-controller");
+const messageController = require("./routes/message-controller");
 
 
 var cors = require('cors');
@@ -58,6 +59,7 @@ app.use(passport.session());
 app.use('/', authController);
 app.use('/', userController);
 app.use('/', dataController);
+app.use('/', messageController);
 
 
 // catch 404 and forward to error handler

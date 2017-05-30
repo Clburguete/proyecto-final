@@ -1,8 +1,4 @@
 <div class="" *ngIf="user">
-  <div class="row">
-    {{loggedUser._id}} - {{user._id}} aaaaaaa
-  </div>
-
   <div *ngIf="loggedUser._id === user._id" class="row">
     <a [routerLink]="['../']" class="waves-effect waves-light btn"> Edit your profile </a>
   </div>
@@ -10,16 +6,37 @@
   <div class="row">
     <div class="col s12 m12">
       <div class="card darken-1">
-        <span class="card-title"><h2>{{user.username}}</h2></span>
+        <span class="card-title"><h2>{{user.username | capitalize}}</h2></span>
+        <div class="row">
 
+          <div class="col s12 m4 lg4">
+            <h5 for="">Interested in</h5>
+            <h4>{{user.inv_datasheets.interests | capitalize}}</h4>
+          </div>
+          <div class="col s12 m4 lg4">
+            <h5 for="">Can connect with</h5>
+            <h4>{{user.inv_datasheets.connections}}</h4>
+          </div>
+          <div class="col s12 m4 lg4">
+            <h5 for="">Willing to invest</h5>
+            <h4 class="money">{{user.inv_datasheets.budget | currency:'EUR':true}}</h4>
+          </div>
+        </div>
+        <div class="row">
 
-        <div class="card-action">
-          <a href="#">Contact</a>
-          <a href="#"></a>
+          <div class="col s12 m8 lg8">
+            <h5 for="">AQUI VAN GRAFICOS</h5>
+
+          </div>
+
+          <div class="col s12 m4 lg4">
+            <h5 for="">Expects return in...</h5>
+            <h4>{{user.inv_datasheets.investreturn| capitalize}} term</h4>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
+<a [routerLink]="['/message']" class="waves-effect waves-light btn"> Contact! </a>
 <a [routerLink]="['../']" class="waves-effect waves-light btn"> Back to full list </a>

@@ -9,13 +9,6 @@ const StartupData = require("../model/startup-data");
 
 datasheetController.post("/signup/investordata", (req, res, next) => {
     if (req.isAuthenticated()) {
-        console.log(req.body);
-
-
-        console.log("DataSheet Created");
-
-
-        console.log("USUARIO", req.user);
         const {
             connections,
             interests,
@@ -38,12 +31,10 @@ datasheetController.post("/signup/investordata", (req, res, next) => {
             } else {
                 req.login(newInvData, function(err) {
                     if (err) {
-                        console.log(err);
                         return res.status(500).json({
                             message: 'something went wrong :('
                         });
                     }
-                    console.log(req.InvestorData);
                     res.status(200).json(newInvData);
                 });
             }
@@ -58,7 +49,6 @@ datasheetController.post("/signup/investordata", (req, res, next) => {
 datasheetController.post("/signup/startupdata", (req, res, next) => {
 
 
-    console.log("DataSheet Created");
 
 
 
@@ -83,12 +73,10 @@ datasheetController.post("/signup/startupdata", (req, res, next) => {
         } else {
             req.login(newStartupData, function(err) {
                 if (err) {
-                    console.log(err);
                     return res.status(500).json({
                         message: 'something went wrong :('
                     });
                 }
-                console.log(req.StartupData);
                 res.status(200).json(newStartupData);
             });
         }
@@ -114,7 +102,6 @@ datasheetController.post("/signup/startrelate", (req, res, next) => {
         _id: req.body[1]
     };
 
-    console.log("BODY-->",req.body);
     User.findByIdAndUpdate(query, {
         $set: {
             start_datasheets: req.body[0]
@@ -124,5 +111,33 @@ datasheetController.post("/signup/startrelate", (req, res, next) => {
             return next(err);
         }
     });
+});
+datasheetController.post("/edit/investordata", (req, res, next) => {
+  let query = {
+        _id: req.body[1]
+    };
+  let newForm = req.body[0];
+
+  User.findById(query, (err,success)=>{
+    InvestorData.findByIdAndUpdate(success.inv_datasheets, {$set:newForm} ,(err,updatedForm)=>{
+        if (err) {
+          return next(err);
+        }
+    });
+  });
+});
+datasheetController.post("/edit/startupdata", (req, res, next) => {
+  let query = {
+        _id: req.body[1]
+    };
+  let newForm = req.body[0];
+
+  User.findById(query, (err,success)=>{
+    StartupData.findByIdAndUpdate(success.inv_datasheets, {$set:newForm} ,(err,updatedForm)=>{
+        if (err) {
+          return next(err);
+        }
+    });
+  });
 });
 module.exports = datasheetController;

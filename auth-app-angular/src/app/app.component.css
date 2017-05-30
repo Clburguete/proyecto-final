@@ -1,16 +1,24 @@
+
 .brand-logo{
   padding-left: 20px;
 }
 nav{
-  background-color: #588c73;
+  background-color: #edfff6;
   box-shadow: none;
 }
 .side-nav{
-  background-color: #588c73;
+  background-color:#edfff6 ;
 
 }
 nav a{
-  color: white;
+  color: maroon;
   font-size: 18px;
-
+  font-weight: 100;
+}
+nav a.brand-logo{
+  font-size: 28px;
+  font-weight: normal;
+}
+.username{
+  font-weight: normal!important;
 }

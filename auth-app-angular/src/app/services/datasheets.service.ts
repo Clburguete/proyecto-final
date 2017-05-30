@@ -33,7 +33,11 @@ investmentCreate(form, userId){
       return res.json()})
     .catch(this.handleError)
   }
-
+investmentUpdate(form, userId){
+  return this.http.post(`${this.BASEURL}/edit/investordata`,[form, userId], this.options)
+    .map((res)=> res.json())
+    .catch(this.handleError);
+}
 startupFormCreate(form,userId){
   console.log("IDS-->"+form +" "+ userId)
 

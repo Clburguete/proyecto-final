@@ -1,0 +1,18 @@
+.message-container{
+  padding-top: 40px;
+}
+label{
+  padding-top: 30px;
+}
+h2 {
+  color: maroon;
+  padding: 15px;
+  font-weight: 300;
+}
+.username{
+  font-weight: 900;
+}
+.waves-effect{
+  background-color: maroon;
+  float: right;
+}

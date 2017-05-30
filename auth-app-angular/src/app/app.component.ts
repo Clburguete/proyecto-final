@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from './services/session.service';
 import { Router } from '@angular/router';
+import { MessageService } from './services/messages.service'
 
 @Component({
   selector: 'app-root',
@@ -10,18 +11,30 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   loggedUser:any;
   error:any;
+  userMessages: any;
 
-  constructor(public session: SessionService, public router: Router) { }
+  constructor(public messages: MessageService, public session: SessionService, public router: Router) { }
 
    ngOnInit() {
       this.session.getLoginEmitter().subscribe( user => {
         this.loggedUser=user;
         console.log(this.loggedUser);
+        this.messages.showMessages(this.loggedUser._id).subscribe(
+          message => {
+            console.log("MESSAGEs",message);
+
+            return this.userMessages = message;
+          })
+
       })
       this.session.isLoggedIn().subscribe(user => {
         this.loggedUser=user;
+
         console.log(this.loggedUser)
+
       });
+
+
    }
    logout() {
      this.session.logout()

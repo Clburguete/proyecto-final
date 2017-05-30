@@ -1,8 +1,15 @@
 <div class="row">
+
+</div>
+<div *ngIf="loggedUser._id === startup._id" class="row">
+  <a [routerLink]="['../']" class="waves-effect waves-light btn"> Edit your profile </a>
+</div>
+
+<div class="row">
         <div class="col s12 m12">
           <div class="card darken-1">
              <span class="card-title"><h2>{{startup.username}}</h2></span>
-            
+
 
             <div class="card-action">
               <a href="#">Contact</a>

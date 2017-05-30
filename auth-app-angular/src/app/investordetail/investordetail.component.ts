@@ -20,7 +20,6 @@ export class InvestordetailComponent implements OnInit {
 
   ngOnInit() {
     this.loggedUser = this.session.loggedUser;
-    console.log("RAUL MIRA-->", this.loggedUser)
     this.route.params
      .subscribe((params) => {
        this.investorId = params['id'];

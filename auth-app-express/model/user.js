@@ -9,10 +9,8 @@ const userSchema = new Schema({
     type: String,
     enum: ["startup", "investor"],
   },
-  datasheets: {
-    kind: String,
-    item: { type: Schema.Types.ObjectId, refPath: 'datasheets.kind'}
-  }
+  inv_datasheets: {type: Schema.Types.ObjectId, ref: 'inversion'},
+  start_datasheets: {type: Schema.Types.ObjectId, ref: 'startupdata'},
 }, {
   timestamps: {
     createdAt: "created_at",

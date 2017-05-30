@@ -15,9 +15,22 @@ handleError(e) {
   return Observable.throw(e.json().message);
   }
 
-createInvestForm(form){
+investFormRelate(userId, formId){
+  return this.http.post(`${this.BASEURL}/signup/invrelate`, [formId, userId],this.options)
+    .map(res => {
+      console.log("FORM RELATED WITH USER!")
+      //return res.json();
+    })
+    .catch(this.handleError)
+}
+
+
+investmentCreate(form, userId){
   return this.http.post(`${this.BASEURL}/signup/investordata`, form,this.options)
-    .map(res => res.json())
+    .map(res => {
+      this.investFormRelate(userId, res.json()._id).subscribe()
+
+      return res.json()})
     .catch(this.handleError)
   }
 

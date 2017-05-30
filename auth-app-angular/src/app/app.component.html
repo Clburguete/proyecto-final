@@ -15,10 +15,10 @@
       <ul class="side-nav" id="mobile-demo">
         <li><a *ngIf="!loggedUser" [routerLink]="['login']">Login</a></li>
         <li><a *ngIf="!loggedUser" [routerLink]="['signup']">Signup</a></li>
-        <li><a *ngIf="loggedUser" (click)="logout()">Logout</a></li>
-
         <li><a *ngIf=" loggedUser && loggedUser.role ==='user'" [routerLink] = "['/investors',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
         <li><a *ngIf=" loggedUser && loggedUser.role ==='startup'" [routerLink] = "['/startups',loggedUser._id]" >{{loggedUser.username | capitalize }}</a></li>
+        <li><a *ngIf="loggedUser" (click)="logout()">Logout</a></li>
+
 
       </ul>
 

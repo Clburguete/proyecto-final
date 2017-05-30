@@ -25,5 +25,5 @@ const StartupDataSchema = new Schema({
   }
 });
 
-const StartupData = mongoose.model("StartupData", StartupDataSchema);
+const StartupData = mongoose.model("startupdata", StartupDataSchema);
 module.exports = StartupData;

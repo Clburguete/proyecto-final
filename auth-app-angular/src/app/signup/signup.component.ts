@@ -35,14 +35,7 @@ export class SignupComponent implements OnInit {
          .subscribe(
            (user) => {this.successCb(user), this.session.login(this.formInfo)
               .subscribe(
-                (user) => {
-                  this.successCb(user);
-                  if(this.formInfo.role ==="investor"){
-                    this.router.navigate(['investordata']);
-                  } else if(this.formInfo.role ==="startup"){
-                    this.router.navigate(['startupdata'])
-                  }
-                },
+                (user) => this.successCb(user),
                 (err) => this.errorCb(err)
               );},
            (err) => this.errorCb(err)
@@ -56,6 +49,11 @@ export class SignupComponent implements OnInit {
 
      successCb(user) {
        this.user = user;
+       if(user.role ==="investor"){
+         this.router.navigate(['investordata']);
+       } else if(user.role ==="startup"){
+         this.router.navigate(['startupdata'])
+       }
        this.error = null;
 
      }

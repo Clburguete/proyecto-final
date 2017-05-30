@@ -24,5 +24,5 @@ const InversionSchema = new Schema({
   }
 });
 
-const InversionData = mongoose.model("Inversion", InversionSchema);
+const InversionData = mongoose.model("inversion", InversionSchema);
 module.exports = InversionData;

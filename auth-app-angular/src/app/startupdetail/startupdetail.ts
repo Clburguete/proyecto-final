@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StartupService } from '../services/startup.service';
+import { Router } from '@angular/router';
+import { SessionService } from '../services/session.service';
 
 
 @Component({
@@ -11,10 +13,13 @@ import { StartupService } from '../services/startup.service';
 export class StartupdetailComponent implements OnInit {
   startupId: string;
   error:any;
-  
-  constructor(private route: ActivatedRoute, public startup: StartupService) { }
+  loggedUser:any;
+
+  constructor(private route: ActivatedRoute, public startup: StartupService, public session: SessionService) { }
 
   ngOnInit() {
+    this.loggedUser = this.session.loggedUser;
+
     this.route.params
      .subscribe((params) => {
        this.startupId = params['id'];

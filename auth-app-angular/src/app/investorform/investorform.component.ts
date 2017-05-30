@@ -24,7 +24,7 @@ export class InvestorformComponent implements OnInit {
   constructor(private session: SessionService, private router: Router, private dataService: DatasheetsService) { }
 
   ngOnInit() {
-    // this.session.getLoginEmitter().subscribe(user => this.loggedUser=user)
+    this.session.getLoginEmitter().subscribe(user => this.loggedUser=user)
     // this.session.isLoggedIn().subscribe();
     this.loggedUser = this.session.loggedUser;
 
@@ -32,9 +32,11 @@ export class InvestorformComponent implements OnInit {
 
   create() {
     //this.session.isLoggedIn().subscribe(res=>console.log(res))
-    this.dataService.createInvestForm(this.InvestorForm)
+    this.dataService.investmentCreate(this.InvestorForm, this.loggedUser._id)
       .subscribe(
-      (data) => this.successCb(data),
+      (data) => {
+        console.log("MIS DATOOOOOS-->",data)
+        return this.successCb(data)},
       (err) => this.errorCb(err)
       )
   }

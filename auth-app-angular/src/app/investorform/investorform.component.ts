@@ -25,7 +25,6 @@ export class InvestorformComponent implements OnInit {
 
   ngOnInit() {
     this.session.getLoginEmitter().subscribe(user => this.loggedUser=user)
-    // this.session.isLoggedIn().subscribe();
     this.loggedUser = this.session.loggedUser;
 
   }
@@ -35,20 +34,17 @@ export class InvestorformComponent implements OnInit {
     this.dataService.investmentCreate(this.InvestorForm, this.loggedUser._id)
       .subscribe(
       (data) => {
-        console.log("MIS DATOOOOOS-->",data)
         return this.successCb(data)},
       (err) => this.errorCb(err)
       )
   }
 
   errorCb(err) {
-    console.log(err);
     this.error = err;
     this.data = null;
   }
 
   successCb(data) {
-    console.log("Data", data)
     this.data = data;
     this.error = null;
 

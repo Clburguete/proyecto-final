@@ -34,10 +34,25 @@ investmentCreate(form, userId){
     .catch(this.handleError)
   }
 
-createStartupForm(form){
+startupFormCreate(form,userId){
+  console.log("IDS-->"+form +" "+ userId)
+
   return this.http.post(`${this.BASEURL}/signup/startupdata`, form,this.options)
-    .map(res => res.json())
+    .map(res => {
+      console.log("Con raul-->",res)
+      this.startupFormRelate(userId,res.json()._id).subscribe()
+
+      return res.json()})
     .catch(this.handleError)
   }
+startupFormRelate(userId, formId){
+    console.log("RELATE IDS-->"+formId +" "+ userId)
+    return this.http.post(`${this.BASEURL}/signup/startrelate`, [formId, userId],this.options)
+      .map(res => {
+        console.log("FORM RELATED WITH USER!")
 
+        //return res.json();
+      })
+      .catch(this.handleError)
+  }
 }

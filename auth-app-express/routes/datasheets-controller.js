@@ -56,7 +56,6 @@ datasheetController.post("/signup/investordata", (req, res, next) => {
 });
 
 datasheetController.post("/signup/startupdata", (req, res, next) => {
-    console.log(req.body);
 
 
     console.log("DataSheet Created");
@@ -76,7 +75,6 @@ datasheetController.post("/signup/startupdata", (req, res, next) => {
         investinterest,
         budget
     });
-
     newStartupData.save((err) => {
         if (err) {
             res.status(400).json({
@@ -91,7 +89,7 @@ datasheetController.post("/signup/startupdata", (req, res, next) => {
                     });
                 }
                 console.log(req.StartupData);
-                res.status(200).json(req.StartupData);
+                res.status(200).json(newStartupData);
             });
         }
     });
@@ -109,6 +107,22 @@ datasheetController.post("/signup/invrelate", (req, res, next) => {
             return next(err);
         }
     });
-    //User.find(query, (err,user)=> console.log("USER-->",user));
+});
+
+datasheetController.post("/signup/startrelate", (req, res, next) => {
+  let query = {
+        _id: req.body[1]
+    };
+
+    console.log("BODY-->",req.body);
+    User.findByIdAndUpdate(query, {
+        $set: {
+            start_datasheets: req.body[0]
+        }
+    }, (err, updatedUser) => {
+        if (err) {
+            return next(err);
+        }
+    });
 });
 module.exports = datasheetController;

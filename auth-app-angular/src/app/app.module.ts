@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 import { Paths } from './route-paths';
 import { RouterModule, Routes } from '@angular/router';
+import { ChartsModule } from 'ng2-charts';
 
 import { SessionService } from "./services/session.service";
 import { UserService } from "./services/user.service";
@@ -54,7 +55,8 @@ import { InboxComponent } from './inbox/inbox.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(Paths)
+    RouterModule.forRoot(Paths),
+    ChartsModule
   ],
   providers: [
     SessionService,

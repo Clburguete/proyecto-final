@@ -8,3 +8,19 @@ a{
   font-size: 25px;
   font-weight: bold;
 }
+.waves-effect{
+  background-color: maroon;
+  float: right;
+}
+input[type=text]:focus{
+  border-bottom: 1px solid maroon;
+box-shadow: 0 1px 0 0 maroon;
+}
+input[type=password]:focus{
+  border-bottom: 1px solid maroon;
+box-shadow: 0 1px 0 0 maroon;
+}
+[type="radio"]:checked + label:after{
+  background-color: #f9d0d6;
+  border: #f9d0d6;
+}

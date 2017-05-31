@@ -18,7 +18,6 @@ authController.post("/signup", (req, res, next) => {
   let role = req.body.role;
 
 
-  console.log("Sign up successful");
 
   if (!username || !password) {
     res.status(400).json({ message: "Provide username and password" });
@@ -50,7 +49,6 @@ authController.post("/signup", (req, res, next) => {
                 message: 'something went wrong :('
               });
             }
-            console.log("USER IS LOGGED IN CORRECT");
             res.status(200).json(newUser);
           });
         }
@@ -89,7 +87,6 @@ authController.get("/loggedin", function(req, res) {
 });
 
 authController.get("/private", (req, res) => {
-  console.log(req.session);
   if(req.isAuthenticated()) {
     return res.json({ message: 'This is a private message' });
   }

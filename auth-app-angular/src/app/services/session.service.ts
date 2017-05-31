@@ -30,28 +30,22 @@ export class SessionService {
 
   login(user) {
     return this.http.post(`${this.BASEURL}/login`, user, this.options)
-      .map(res => {
-        this.loggedUser = res.json();
-        this.loginEvent.emit(this.loggedUser);
-        return res.json();
-      })
+      .map(res => res.json())
+      .map(user => {this.loggedUser=user; this.loginEvent.emit(user); return user})
       .catch(this.handleError);
   }
 
   logout() {
     return this.http.post(`${this.BASEURL}/logout`,{}, this.options)
-      .map(res => {
-        this.loggedUser = null;
-        this.loginEvent.emit(this.loggedUser);
-        return res.json();
-      })
+      .map(res => res.json())
+      .map(response => {this.loggedUser=null; this.loginEvent.emit(null); return response;})
       .catch(this.handleError);
   }
 
   isLoggedIn() {
     return this.http.get(`${this.BASEURL}/loggedin`, this.options)
       .map(res => res.json())
-      .map(user => {this.loggedUser=user; return this.loggedUser})
+      .map(user => {this.loggedUser=user; this.loginEvent.emit(user); return user})
       .catch((err) => this.handleError(err));
   }
 

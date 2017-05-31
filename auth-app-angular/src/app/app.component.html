@@ -6,17 +6,19 @@
       <ul class="right hide-on-med-and-down">
         <li><a *ngIf="!loggedUser"[routerLink]="['login']">Login</a></li>
         <li><a *ngIf="!loggedUser"[routerLink]="['signup']">Signup</a></li>
-        <li><a *ngIf="loggedUser" (click)="logout()">Logout</a></li>
         <li><a *ngIf="loggedUser && loggedUser.role ==='investor'" class="username" [routerLink] = "['/investors',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
         <li><a *ngIf="loggedUser && loggedUser.role ==='startup'" class="username"[routerLink] = "['/startups',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
+        <li><a *ngIf="loggedUser && userMessages" [routerLink]="['inbox',loggedUser._id]"><span class = 'username'>{{userMessages.length}}</span> Notification<span *ngIf= "userMessages.length > 1 || userMessages.length === 0">s</span></a></li>
+        <li><a *ngIf="loggedUser" (click)="logout()">Logout</a></li>
 
 
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a *ngIf="!loggedUser" [routerLink]="['login']">Login</a></li>
-        <li><a *ngIf="!loggedUser" [routerLink]="['signup']">Signup</a></li>
-        <li><a *ngIf=" loggedUser && loggedUser.role ==='user'" class="username"[routerLink] = "['/investors',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
-        <li><a *ngIf=" loggedUser && loggedUser.role ==='startup'" class="username"[routerLink] = "['/startups',loggedUser._id]" >{{loggedUser.username | capitalize }}</a></li>
+        <li><a *ngIf="!loggedUser"[routerLink]="['login']">Login</a></li>
+        <li><a *ngIf="!loggedUser"[routerLink]="['signup']">Signup</a></li>
+        <li><a *ngIf="loggedUser && loggedUser.role ==='investor'" class="username" [routerLink] = "['/investors',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
+        <li><a *ngIf="loggedUser && loggedUser.role ==='startup'" class="username"[routerLink] = "['/startups',loggedUser._id]" >{{loggedUser.username | capitalize}}</a></li>
+        <li><a *ngIf="loggedUser &&userMessages" [routerLink]="['inbox',loggedUser._id]"><span class = 'username'>{{userMessages.length}}</span> Notification<span *ngIf= "userMessages.length > 1|| userMessages.length === 0">s</span></a></li>
         <li><a *ngIf="loggedUser" (click)="logout()">Logout</a></li>
 
 

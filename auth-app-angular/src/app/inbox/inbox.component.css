@@ -1,0 +1,34 @@
+.message-container{
+  padding-top: 40px;
+}
+label{
+  padding-top: 30px;
+  color: #588c73;
+  font-size: 1.2em;
+}
+h2 {
+  color: maroon;
+  font-weight: 300;
+}
+.username{
+  font-weight: 900;
+}
+.waves-effect{
+  background-color: maroon;
+  float: right;
+}
+ul{
+  border-style: none;
+}
+.collection.with-header{
+  margin-top: 40px;
+}
+.collection.with-header .collection-header{
+  border-style: none;
+  border-bottom: 1px solid maroon;
+  background-color:  #59ffffff;
+  padding: 10px;
+}
+.collection-item{
+  border-style: none;
+}

@@ -8,8 +8,8 @@ const authChecker = require("../authCheckerMiddleWare");
 const User = require("../model/user");
 const Message = require("../model/message");
 
-messageController.post(`/message/new`, (req, res, next) => {
-    if (req.isAuthenticated()) {
+messageController.post(`/message/new`,authChecker, (req, res, next) => {
+
 
         const {
             from,
@@ -39,23 +39,34 @@ messageController.post(`/message/new`, (req, res, next) => {
                 });
             }
         });
-    } else {
-        return res.status(403).json({
-            message: 'Unauthorized'
-        });
-    }
+
 });
 
-messageController.get("/messages/:id",authChecker, function(req,res){
-  let userId = req.params.id;
-    Message.find({ to : userId }).then((success)=>
-      success => res.status(200).json(success)
-  );
-    //   , (err,messages)=> {
-    //   console.log("Mensajes",messages);
-    //   return res.status(200).json(messages);
-    // });
-
+messageController.get("/messages/:id", authChecker, function(req, res) {
+    let userId = req.params.id;
+    Message.find({
+        to: userId
+    })
+    .then((messages) => res.status(200).json(messages))
+    .catch(err => res.status(500).json(err));
+});
+messageController.get("/inbox/:id", authChecker, function(req, res) {
+    let userId = req.params.id;
+    Message.find({
+        to: userId
+    }).populate('from').then(messages => {
+      return res.status(200).json(messages);
+    })
+    .catch(err => res.status(500).json(err));
+});
+messageController.get("/delete-message/:id", authChecker, function(req, res) {
+    let messageId = req.params.id;
+    Message.deleteOne({
+        _id : messageId
+    }).then(message => {
+      return res.status(200).json(message);
+    })
+    .catch(err => res.status(500).json(err));
 });
 
 

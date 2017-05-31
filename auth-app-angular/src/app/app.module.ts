@@ -27,6 +27,7 @@ import { EditinvestorComponent } from './editinvestor/editinvestor.component';
 import { InvestorformComponent } from './investorform/investorform.component';
 import { StartupformComponent } from './startupform/startupform.component';
 import { NewMessageComponent } from './new-message/new-message.component';
+import { InboxComponent } from './inbox/inbox.component';
 
 
 
@@ -46,7 +47,8 @@ import { NewMessageComponent } from './new-message/new-message.component';
     EditinvestorComponent,
     InvestorformComponent,
     StartupformComponent,
-    NewMessageComponent
+    NewMessageComponent,
+    InboxComponent
   ],
   imports: [
     BrowserModule,

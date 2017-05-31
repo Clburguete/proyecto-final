@@ -19,10 +19,7 @@ export class NewMessageComponent implements OnInit {
   receiver:any;
 
   content:string;
-  //   to:'',
-  //   from:'',
-  //   content:''
-  // }
+
   receiverId:any;
   constructor(public userService: UserService, private route: ActivatedRoute,public session: SessionService, private messaging: MessageService) { }
 

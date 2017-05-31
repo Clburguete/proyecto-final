@@ -12,7 +12,6 @@ module.exports = function(passport) {
         User.findOne({
             "_id": id
         }, (err, user) => {
-            console.log("deserialize user--> " + user);
             if (err) {
                 return cb(err);
             }
@@ -24,7 +23,6 @@ module.exports = function(passport) {
             passReqToCallback: true
         },
         (req, username, password, next) => {
-            console.log(req.body);
             User.findOne({
                 username
             }, (err, user) => {

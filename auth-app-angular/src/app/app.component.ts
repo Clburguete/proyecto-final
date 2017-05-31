@@ -9,54 +9,36 @@ import { MessageService } from './services/messages.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  loggedUser:any;
-  error:any;
+  error: any;
   userMessages: any;
-
+  loggedUser: any;
   constructor(public messages: MessageService, public session: SessionService, public router: Router) { }
 
-   ngOnInit() {
-      this.session.getLoginEmitter().subscribe( user => {
-        this.loggedUser=user;
-        console.log(this.loggedUser);
-        this.messages.showMessages(this.loggedUser._id).subscribe(
-          message => {
-            console.log("MESSAGEs",message);
+  ngOnInit() {
+    this.session.getLoginEmitter().subscribe(user => {
+      this.loggedUser = user;
+      this.showUserMessages()
+    })
+    this.session.isLoggedIn().subscribe(user => {
+      this.loggedUser = user;
+    });
 
-            return this.userMessages = message;
-          })
 
-      })
-      this.session.isLoggedIn().subscribe(user => {
-        this.loggedUser=user;
+      this.messages.messageEvent.subscribe(messages => this.userMessages = messages)
+    
+  }
 
-        console.log(this.loggedUser)
-
+  showUserMessages() {
+    if(!this.session.loggedUser) return;
+    console.log("User Logged in, getting messages....")
+    this.messages.showUserMessages(this.session.loggedUser._id).subscribe(
+      message => {
+        return this.userMessages = message;
       });
+  }
 
-
-   }
-   logout() {
-     this.session.logout()
-     .subscribe(
-       () => {
-         this.successCb(null);
-         this.router.navigate(['']);
-       },
-       (err) => this.errorCb(err)
-     );
-   }
-   islogged(){
-     this.session.isLoggedIn().subscribe(user => console.log(user));
-   }
-   errorCb(err) {
-     this.error = err;
-     this.loggedUser = null;
-   }
-
-   successCb(user) {
-     this.loggedUser = user;
-     this.error = null;
-   }
-
+  logout() {
+    this.session.logout().subscribe();
+    this.router.navigate(['']);
+  }
 }

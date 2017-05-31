@@ -7,25 +7,36 @@ import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class MessageService {
-  options = {withCredentials:true};
+  options = { withCredentials: true };
+  messageEvent = new EventEmitter<any>();
   BASEURL: String = "http://localhost:3000";
-  constructor(private http: Http ) {}
+  constructor(private http: Http) { }
 
-createMessage(message){
-  return this.http.post(`${this.BASEURL}/message/new`, message,this.options)
-    .map(res => {
-      return res.json();
-    })
-    .catch(this.handleError)
-}
-showMessages(id){
-  return this.http.get(`${this.BASEURL}/messages/:${id}`, this.options)
-    .map(res => {
-      console.log("message--->",res)
-      return res.json()})
-    .catch((err) => this.handleError(err))
-}
+  createMessage(message) {
+    return this.http.post(`${this.BASEURL}/message/new`, message, this.options)
+      .map(res => {
+        return res.json();
+      })
+      .catch(this.handleError)
+  }
+  showMessages(id) {
+    return this.http.get(`${this.BASEURL}/messages/${id}`, this.options)
+      .map(res => res.json())
+      .catch((err) => this.handleError(err))
+  }
+  showUserMessages(id){
+    return this.http.get(`${this.BASEURL}/inbox/${id}`, this.options)
+      .map(res => res.json())
+      .map(messages => {this.messageEvent.emit(messages); return messages})
+      .catch((err) => this.handleError(err))
+  }
+
   handleError(e) {
     return Observable.throw(e.json().message);
   }
-}
+  deleteMessage(id){
+    return this.http.get(`${this.BASEURL}/delete-message/${id}`,this.options)
+    .map(res => res.json())
+    .catch((err) => this.handleError(err))
+  }
+  }

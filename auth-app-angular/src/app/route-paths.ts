@@ -10,7 +10,7 @@ import { EditinvestorComponent } from './editinvestor/editinvestor.component'
 import { InvestorformComponent } from './investorform/investorform.component';
 import { StartupformComponent } from './startupform/startupform.component';
 import { NewMessageComponent } from './new-message/new-message.component';
-
+import { InboxComponent } from './inbox/inbox.component'
 
 export const Paths: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -28,7 +28,8 @@ export const Paths: Routes = [
   { path: 'startups/:id', component: StartupdetailComponent},
   { path: 'invboard', component: InvestorDashboardComponent},
 
-  { path: 'message/:id', component: NewMessageComponent}
+  { path: 'message/:id', component: NewMessageComponent},
+  { path: 'inbox/:id', component: InboxComponent}
 
 
 

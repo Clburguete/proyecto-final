@@ -12,7 +12,7 @@ export class InvestorsComponent implements OnInit {
   investorList: any[];
   error: string;
   user: any;
-  constructor(private investors : UserService, private session: SessionService, private router: Router) { }
+  constructor(private investors : UserService, public session: SessionService, private router: Router) { }
 
   ngOnInit() {
     this.session.getLoginEmitter().subscribe(user => this.user=user)

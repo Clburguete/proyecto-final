@@ -22,3 +22,11 @@ nav a.brand-logo{
 .username{
   font-weight: normal!important;
 }
+.message-number{
+  height: 40px;
+  width: 40px;
+  display: inline;
+  border-radius: 50%;
+  background: black;
+  color: white
+}

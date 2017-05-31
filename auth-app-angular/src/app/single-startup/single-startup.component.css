@@ -17,3 +17,9 @@
   font-weight: bolder;
   text-align: right;
 }
+.username{
+  font-weight: 900;
+}
+.light{
+  font-weight: lighter;
+}

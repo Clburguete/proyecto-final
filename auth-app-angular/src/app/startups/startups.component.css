@@ -1,9 +1,33 @@
 h1{
+
+    font-weight: bolder;
+    color: #588c73;
+    font-size: 4.2rem;
+      line-height: 110%;
+      margin: 2.1rem 0 1.68rem 0;
+
+}
+.title{
+  color: lightgrey;
+  display: inline;
   font-weight: bolder;
+  font-size: 3.8rem;
+    line-height: 110%;
+    margin: 2.1rem 0 1.68rem 0;
+}
+.page{
+  color:	#8B0000;
+}
+.title:hover, .investors:active{
   color: #588c73;
+
 }
 .waves-effect{
 
   background-color: #e1d1d1;
   color: maroon;
+}
+.title-container{
+margin: auto;
+padding: 40px;
 }

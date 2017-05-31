@@ -11,9 +11,11 @@ import { InvestorformComponent } from './investorform/investorform.component';
 import { StartupformComponent } from './startupform/startupform.component';
 import { NewMessageComponent } from './new-message/new-message.component';
 import { InboxComponent } from './inbox/inbox.component'
+import { HomeComponent } from './home/home.component'
 
 export const Paths: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'login',  component: LoginComponent },
   { path: 'signup',  component: SignupComponent},
 

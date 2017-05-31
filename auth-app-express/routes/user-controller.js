@@ -8,6 +8,8 @@ const authChecker = require("../authCheckerMiddleWare");
 // Our user model
 const User           = require("../model/user");
 
+
+
 userController.get("/investors", authChecker ,function(req,res) {
   // if(req.isAuthenticated()){
   User.find((err, users)=>{
@@ -29,7 +31,6 @@ userController.get("/investors", authChecker ,function(req,res) {
 
 userController.get("/investors/:id", authChecker, function(req,res){
   userId = req.params.id;
-  // if(req.isAuthenticated()){
   let populatedUser;
     User.findById(userId,(err, user)=>{
       if (user.start_datasheets) {
@@ -40,11 +41,27 @@ userController.get("/investors/:id", authChecker, function(req,res){
       populatedUser.then((user)=>  res.status(200).json(user));
 
     });
-  // } else {
-  //   return res.status(403).json({ message: 'Unauthorized'});
-  // }
+
 });
+//Home page routes
 
+userController.get("/home/investors" ,function(req,res) {
+  // if(req.isAuthenticated()){
+  User.find((err, users)=>{
+    let populatedUsers = users.map((user)=> {
+      if(user.start_datasheets){
+        return new Promise((resolve) => user.populate('start_datasheets',(err,success)=> resolve(success)));
+      } else {
+        return new Promise((resolve) => user.populate('inv_datasheets',(err,success)=> resolve(success)));
+      }
+    });
 
+    Promise.all(populatedUsers).then( (users) => {
+      return res.status(200).json(users);
+    }).catch(reason => {
+      console.log(reason);
+    });
+  });
+});
 
 module.exports = userController;

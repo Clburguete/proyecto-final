@@ -17,6 +17,8 @@ ul{
   background-color: #ffd8de;
 }
 .waves-effect{
+  margin-right: 10px;
+
   float: right;
   background-color: #e1d1d1;
   color: maroon;

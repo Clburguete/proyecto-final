@@ -29,6 +29,7 @@ import { InvestorformComponent } from './investorform/investorform.component';
 import { StartupformComponent } from './startupform/startupform.component';
 import { NewMessageComponent } from './new-message/new-message.component';
 import { InboxComponent } from './inbox/inbox.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -49,7 +50,8 @@ import { InboxComponent } from './inbox/inbox.component';
     InvestorformComponent,
     StartupformComponent,
     NewMessageComponent,
-    InboxComponent
+    InboxComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

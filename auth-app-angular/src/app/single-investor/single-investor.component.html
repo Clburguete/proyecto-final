@@ -6,16 +6,21 @@
        <h4>{{investor.inv_datasheets.budget | currency:'EUR':true}} <span class="money"> {{investor.role}}</span></h4>
 
      </li>
-     <br>
+     
 
 
   </ul>
+<div class="row">
+  <a class ='waves-effect waves-light btn' [routerLink] = "['/investors',investor._id]">
+    Details
+  </a>
+
+  <a [routerLink]="['/message',investor._id]" class="waves-effect waves-light btn"> Contact </a>
+</div>
+<div class="row">
   <a *ngIf="loggedUser._id === investor._id"class ='waves-effect waves-light btn' [routerLink]="['/investors',investor._id,'edit']">
     Edit your profile
   </a>
 
-  <a class ='waves-effect waves-light btn' [routerLink] = "['/investors',investor._id]">
-    Details
-  </a>
-  <a [routerLink]="['/message',investor._id]" class="waves-effect waves-light btn"> Contact </a>
+</div>
 </div>

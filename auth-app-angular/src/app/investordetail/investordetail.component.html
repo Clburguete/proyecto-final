@@ -37,5 +37,5 @@
 </div>
 <a *ngIf="loggedUser && user && loggedUser._id === user._id" [routerLink]="['/investors',user._id,'edit']" class="waves-effect waves-light btn"> Edit your profile </a>
 
-<a [routerLink]="['/message']" class="waves-effect waves-light btn"> Contact! </a>
+<a *ngIf='user' [routerLink]="['/message',user._id]" class="waves-effect waves-light btn"> Contact! </a>
 <a [routerLink]="['../']" class="waves-effect waves-light btn"> Back to full list </a>

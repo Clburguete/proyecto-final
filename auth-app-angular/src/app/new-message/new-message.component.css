@@ -16,3 +16,7 @@ h2 {
   background-color: maroon;
   float: right;
 }
+input:not([type]):focus{
+  border-bottom: 1px solid maroon;
+box-shadow: 0 1px 0 0 maroon;
+}

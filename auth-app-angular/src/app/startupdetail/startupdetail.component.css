@@ -7,6 +7,9 @@ h2 {
   padding: 15px;
   font-weight: 600;
 }
+.chart-container{
+  padding:35px;
+}
 .money{
   font-size: 1.75rem;
   color: #36654e;

@@ -15,7 +15,9 @@ export class EditstartupComponent implements OnInit {
     category: '',
     lookingfor: '',
     investinterest: '',
-    budget:''
+    budget:'',
+    lastrevenue: [],
+    expectedrevenue:[]
   };
   isDisabled: boolean;
   data:any;

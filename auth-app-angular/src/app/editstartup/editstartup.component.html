@@ -44,6 +44,60 @@
     <label> How much $ do you need? </label>
     <input type="number" [(ngModel)]="StartupForm.budget" name="budget"/>
     <br>
+    <div class="row">
+      <h6>Update your last revenues</h6>
+      <div class="col s2 m2 lg2">
+        <label>January</label>
+        <input type="number" [(ngModel)]="StartupForm.lastrevenue[0]" name="lastrevenue[0]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>February</label>
+        <input type="number" [(ngModel)]="StartupForm.lastrevenue[1]" name="lastrevenue[1]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>March</label>
+        <input type="number" [(ngModel)]="StartupForm.lastrevenue[2]" name="lastrevenue[2]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>April</label>
+        <input type="number" [(ngModel)]="StartupForm.lastrevenue[3]" name="lastrevenue[3]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>May</label>
+        <input type="number" [(ngModel)]="StartupForm.lastrevenue[4]" name="lastrevenue[4]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>June</label>
+        <input type="number" [(ngModel)]="StartupForm.lastrevenue[5]" name="lastrevenue[5]"/>
+      </div>
+    </div>
+    <div class="row">
+      <h6>Update your revenue expectations for next year</h6>
+      <div class="col s2 m2 lg2">
+        <label>January</label>
+        <input type="number" [(ngModel)]="StartupForm.expectedrevenue[0]" name="expectedrevenue[0]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>February</label>
+        <input type="number" [(ngModel)]="StartupForm.expectedrevenue[1]" name="expectedrevenue[1]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>March</label>
+        <input type="number" [(ngModel)]="StartupForm.expectedrevenue[2]" name="expectedrevenue[2]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>April</label>
+        <input type="number" [(ngModel)]="StartupForm.expectedrevenue[3]" name="expectedrevenue[3]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>May</label>
+        <input type="number" [(ngModel)]="StartupForm.expectedrevenue[4]" name="expectedrevenue[3]"/>
+      </div>
+      <div class="col s2 m2 lg2">
+        <label>June</label>
+        <input type="number" [(ngModel)]="StartupForm.expectedrevenue[5]" name="expectedrevenue[3]"/>
+      </div>
+    </div>
     <a (click)="update()" [routerLink]="['/investors']" class="waves-effect waves-light btn"> Update your datasheet </a>
 
   </form>

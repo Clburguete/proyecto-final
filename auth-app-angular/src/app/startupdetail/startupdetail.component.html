@@ -23,9 +23,11 @@
         </div>
         <div class="row">
 
-          <div class="col s12 m8 lg8">
-            <h5 for="">AQUI VAN GRAFICOS</h5>
-            <h4>{{startup.start_datasheets.category | capitalize}}</h4>
+          <div class="chart-container col s12 m8 lg8">
+            <div style="display: block;">
+              <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+            </div>
+
           </div>
 
           <div class="col s12 m4 lg4">
@@ -35,7 +37,7 @@
         </div>
       </div>
     </div>
-    <a *ngIf="startup && loggedUser && loggedUser._id === startup._id"[routerLink]="['/startups',startup._id,'edit']" class="waves-effect waves-light btn"> Edit your profile </a>
+    <a *ngIf="startup && loggedUser && loggedUser._id === startup._id" [routerLink]="['/startups',startup._id,'edit']" class="waves-effect waves-light btn"> Edit your profile </a>
     <a [routerLink]="['../']" class="waves-effect waves-light btn"> Back to full list </a>
     <a *ngIf='startup' [routerLink]="['/message',startup._id]" class="waves-effect waves-light btn"> Contact </a>
   </div>

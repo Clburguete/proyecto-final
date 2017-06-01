@@ -2,9 +2,7 @@
 const express        = require("express");
 const userController = express.Router();
 const passport = require("passport");
-const authChecker = require("../authCheckerMiddleWare");
-
-
+const authChecker = require("../authCheckerMiddleware");
 // Our user model
 const User           = require("../model/user");
 

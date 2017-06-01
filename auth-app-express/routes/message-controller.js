@@ -2,7 +2,7 @@
 const express = require("express");
 const messageController = express.Router();
 const passport = require("passport");
-const authChecker = require("../authCheckerMiddleWare");
+const authChecker = require("../authCheckerMiddleware");
 
 
 const User = require("../model/user");

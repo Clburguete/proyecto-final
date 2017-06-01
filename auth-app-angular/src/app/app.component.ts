@@ -15,25 +15,20 @@ export class AppComponent implements OnInit {
   constructor(public messages: MessageService, public session: SessionService, public router: Router) { }
 
   ngOnInit() {
-    this.session.getLoginEmitter().subscribe(user => {
+    this.session.getLoginEmitter().subscribe( user => {
       this.loggedUser = user;
-      this.showUserMessages()
+      this.showNumberMessages()
     })
-      // this.session.isLoggedIn().subscribe(user => {
-      //   this.loggedUser = user;
-      // });
 
-      this.messages.messageEvent.subscribe(messages => this.userMessages = messages)
+
+      this.messages.messageEvent.subscribe( messages => this.userMessages = messages)
 
   }
 
-  showUserMessages() {
+  showNumberMessages() {
     if(!this.loggedUser) return;
     console.log("User Logged in, getting messages....")
-    this.messages.showUserMessages(this.loggedUser._id).subscribe(
-      message => {
-        return this.userMessages = message;
-      });
+    this.messages.showUserMessages(this.loggedUser._id).subscribe( message => this.userMessages = message);
   }
 
   logout() {

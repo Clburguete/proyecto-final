@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service'
 
-
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   constructor(private info : UserService) { }
 
   ngOnInit() {
-
+    $('.slider').slider({indicators: false, interval: 2500, transition: 2000});
 
     this.info.homeShowAll()
       .subscribe(

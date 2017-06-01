@@ -3,10 +3,12 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+import { environment }  from '../../environments/environment';
+
 
 @Injectable()
 export class UserService {
-  BASEURL: String =  "http://localhost:3000";
+  BASEURL: String =  environment.BASE_URL;
   constructor(private http: Http) { }
 
 

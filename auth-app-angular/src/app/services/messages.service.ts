@@ -4,13 +4,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
 import { SessionService } from './session.service';
+import { environment }  from '../../environments/environment';
 
 
 @Injectable()
 export class MessageService {
   options = { withCredentials: true };
   messageEvent = new EventEmitter<any>();
-  BASEURL: String = "http://localhost:3000";
+  BASEURL: String = environment.BASE_URL;
   constructor(private http: Http, private session: SessionService) { }
 
   createMessage(message) {

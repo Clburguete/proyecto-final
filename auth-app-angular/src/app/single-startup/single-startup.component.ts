@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { SessionService } from '../services/session.service';
 
 
@@ -12,7 +11,7 @@ import { SessionService } from '../services/session.service';
 export class SingleStartupComponent implements OnInit {
   @Input() startup: any;
   loggedUser: any;
-
+  
   constructor(public session: SessionService) { }
 
   ngOnInit() {

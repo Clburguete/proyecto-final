@@ -14,11 +14,11 @@ const authController  = require("./routes/auth-controller");
 const dataController = require("./routes/datasheets-controller");
 const messageController = require("./routes/message-controller");
 
-
+require("dotenv").config();
 var cors = require('cors');
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/passport-local");
+mongoose.connect(process.env.MONGODB_URI);
 
 var app = express();
 

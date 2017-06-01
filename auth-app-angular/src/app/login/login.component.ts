@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
      formInfo = {
        username: '',
        password: '',
-  
+
      };
      isDisabled: boolean;
 
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
        if(this.user.role ==="investor"){
          this.router.navigate(['startups']);
        } else if(this.user.role ==="startup"){
-         this.router.navigate(['invboard'])
+         this.router.navigate(['investors'])
        }
        this.error = null;
      }

@@ -28,6 +28,7 @@ export class NewMessageComponent implements OnInit {
     this.session.isLoggedIn().subscribe(user => {
       this.loggedUser = user;
     });
+    this.loggedUser = this.session.loggedUser
 
     this.route.params
       .subscribe((params)=>{

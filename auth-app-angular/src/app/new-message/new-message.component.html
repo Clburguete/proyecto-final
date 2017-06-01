@@ -10,6 +10,6 @@
 
   </div>
 
-  <a (click)="create()" class="waves-effect waves-light btn"> Submit Message </a>
+  <a (click)="create()" [routerLink]="['/inbox',loggedUser._id]" class="waves-effect waves-light btn"> Submit Message </a>
 
 </div>

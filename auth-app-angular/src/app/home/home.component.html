@@ -18,28 +18,39 @@
           </li>
         </ul>
       </div>
-
-    </div>
-    <div class="image-container col s12 m6 lg8">
-      <img src="http://i.imgur.com/PFgrpAS.png" class='home-image' alt="">
-      <img src="http://i.imgur.com/lWb8ydi.png" class='home-image' alt="">
-
-      <h3>Join our early birds community and enjoy the ride</h3>
-
-    </div>
-
-
-
-    <div class="row">
-
-      <div  class='chart'>
+      <div class="chart">
         <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [colors]="doughnutChartColors">
         </canvas>
 
+      </div>
+
+    </div>
+    <div class="image-container col s12 m6 lg8">
+
+                <img src="http://i.imgur.com/PFgrpAS.png" class='home-image' alt="">
+                <img src="http://i.imgur.com/lWb8ydi.png" class='home-image' alt="">
+
+                <h3>Join our early birds community and enjoy the ride</h3>
 
 
+    </div>
 
-        </div>
+    <div class="col s12 m6 lg6">
+      <canvas *ngIf='chartDisabled === false' baseChart
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+      [colors]='barChartColors'></canvas>
+    </div>
+
+
+    <div class="row">
+      <div class="col s12 m6 lg6">
+
+
+      </div>
 
       </div>
     </div>

@@ -15,8 +15,11 @@ export class InvestorsComponent implements OnInit {
   constructor(private investors : UserService, public session: SessionService, private router: Router) { }
 
   ngOnInit() {
-    this.session.getLoginEmitter().subscribe(user => this.user=user)
-    this.session.isLoggedIn().subscribe();
+
+    this.user = this.session.loggedUser;
+  
+
+
 
     this.investors.showAll()
       .subscribe(

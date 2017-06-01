@@ -44,8 +44,8 @@ export class SessionService {
 
   isLoggedIn() {
     return this.http.get(`${this.BASEURL}/loggedin`, this.options)
-      .map(res => res.json())
-      .map(user => {this.loggedUser=user; this.loginEvent.emit(user); return user})
+      .map(res => {console.log('EL USUARSSS',this.loggedUser);return res.json()})
+      .map(user => {this.loggedUser=user;this.loginEvent.emit(user); return user})
       .catch((err) => this.handleError(err));
   }
 

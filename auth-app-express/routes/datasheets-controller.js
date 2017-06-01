@@ -22,27 +22,11 @@ datasheetController.post("/signup/investordata", (req, res, next) => {
             budget,
             investreturn
         });
-
-        newInvData.save((err) => {
-            if (err) {
-                res.status(400).json({
-                    message: "Something went wrong"
-                });
-            } else {
-                req.login(newInvData, function(err) {
-                    if (err) {
-                        return res.status(500).json({
-                            message: 'something went wrong :('
-                        });
-                    }
-                    res.status(200).json(newInvData);
-                });
-            }
-        });
-    } else {
-        return res.status(403).json({
-            message: 'Unauthorized'
-        });
+        newInvData.save()
+          .then((data)=>res.status(200).json(data))
+          .catch(err => res.status(400).json({
+              message: "Something went wrong"
+          }));
     }
 });
 
@@ -65,22 +49,12 @@ datasheetController.post("/signup/startupdata", (req, res, next) => {
         investinterest,
         budget
     });
-    newStartupData.save((err) => {
-        if (err) {
-            res.status(400).json({
-                message: "Something went wrong"
-            });
-        } else {
-            req.login(newStartupData, function(err) {
-                if (err) {
-                    return res.status(500).json({
-                        message: 'something went wrong :('
-                    });
-                }
-                res.status(200).json(newStartupData);
-            });
-        }
-    });
+
+    newStartupData.save()
+      .then((data)=>res.status(200).json(data))
+      .catch(err => res.status(400).json({
+          message: "Something went wrong"
+      }));
 });
 datasheetController.post("/signup/invrelate", (req, res, next) => {
   let query = {

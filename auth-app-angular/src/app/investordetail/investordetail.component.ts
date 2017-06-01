@@ -19,15 +19,19 @@ export class InvestordetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, public userService: UserService, private session: SessionService) { }
 
   ngOnInit() {
-    this.loggedUser = this.session.loggedUser;
+    this.session.isLoggedIn().subscribe(user => {
+      console.log(user)
+      this.loggedUser = user;
+    });
+
     this.route.params
      .subscribe((params) => {
        this.investorId = params['id'];
        this.userService.showOne(this.investorId)
-        .subscribe(
-          (response) => this.successCb(response),
-          (err) => this.errorCb(err)
-        )
+           .subscribe(
+             (response) => this.successCb(response),
+             (err) => this.errorCb(err)
+           )
    });
 
   }
@@ -38,7 +42,6 @@ export class InvestordetailComponent implements OnInit {
 
   successCb(user) {
     this.user = user;
-    console.log("USER",this.user)
     this.error = null;
   }
 

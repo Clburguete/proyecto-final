@@ -15,7 +15,11 @@ export class StartupComponent implements OnInit {
   constructor(public startups: UserService, public session: SessionService) { }
 
   ngOnInit() {
-    this.user=this.session.user
+    this.session.isLoggedIn().subscribe( user => {
+      console.log(user);
+      this.user = user;
+    });
+
 
     this.startups.showAll()
       .subscribe(

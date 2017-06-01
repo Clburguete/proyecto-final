@@ -13,9 +13,9 @@ export class HomeComponent implements OnInit {
   totalInvestment:number;
 
 
-  pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  pieChartLabels: string[] =  ['Startups','Investors'];
   pieChartData: number[] = [300, 500, 100];
-  pieChartType: string = 'pie';
+  pieChartType: string = 'doughnut';
 
 
 
@@ -31,6 +31,20 @@ export class HomeComponent implements OnInit {
         (err) => this.errorCb(err)
       );
   }
+  memberCalculate(list){
+    let invList = [];
+    let startList = [];
+    list.forEach((user)=>{
+      if(user.role==='investor') invList.push(user)
+      if(user.role==='startup') startList.push(user)
+    })
+
+    this.pieChartData = [startList.length, invList.length]
+console.log('STARTUPS', startList)
+
+console.log('INVESTORS', invList)
+}
+
 
   investCalculate(list){
     let realInvestors = [];
@@ -55,6 +69,7 @@ export class HomeComponent implements OnInit {
     this.investorList = list;
     this.error = null;
     this.investCalculate(this.investorList)
+    this.memberCalculate(this.investorList);
 
   }
 }

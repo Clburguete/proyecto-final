@@ -12,7 +12,6 @@ const bcryptSalt     = 10;
 
 
 authController.post("/signup", (req, res, next) => {
-  console.log(req.body);
   let username = req.body.username;
   let password = req.body.password;
   let role = req.body.role;

@@ -19,19 +19,18 @@ export class AppComponent implements OnInit {
       this.loggedUser = user;
       this.showUserMessages()
     })
-    this.session.isLoggedIn().subscribe(user => {
-      this.loggedUser = user;
-    });
-
+      // this.session.isLoggedIn().subscribe(user => {
+      //   this.loggedUser = user;
+      // });
 
       this.messages.messageEvent.subscribe(messages => this.userMessages = messages)
-    
+
   }
 
   showUserMessages() {
-    if(!this.session.loggedUser) return;
+    if(!this.loggedUser) return;
     console.log("User Logged in, getting messages....")
-    this.messages.showUserMessages(this.session.loggedUser._id).subscribe(
+    this.messages.showUserMessages(this.loggedUser._id).subscribe(
       message => {
         return this.userMessages = message;
       });

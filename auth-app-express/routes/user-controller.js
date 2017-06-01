@@ -10,8 +10,7 @@ const User           = require("../model/user");
 
 
 
-userController.get("/investors", authChecker ,function(req,res) {
-  // if(req.isAuthenticated()){
+userController.get("/investors",authChecker,function(req,res) {
   User.find((err, users)=>{
     let populatedUsers = users.map((user)=> {
       if(user.start_datasheets){

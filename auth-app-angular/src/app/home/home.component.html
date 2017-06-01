@@ -1,26 +1,33 @@
 <div class="row">
-  <div class="col s12 m6 lg4">
-<h1>Invest now, contribute to the future</h1>
-<h1 class='money'>{{totalInvestment | currency:'EUR':true}} currently looking to be invested</h1>
+  <div class="col s12 m6 lg4 slider-container">
+    <div class="slider">
+      <ul class="slides">
+        <li>
+          <div>
+            <h1>Invest now, contribute to the future</h1>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h1 class='money'>{{totalInvestment | currency:'EUR':true}} currently looking to be invested</h1>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </div>
   <div class="col s12 m6 lg8">
 
   </div>
-    <div style="display: inline-block">
-      <canvas baseChart
-      [data]="pieChartData"
-      [labels]="pieChartLabels"
-      [chartType]="pieChartType">
+  <div class='chart'>
+    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType">
       </canvas>
 
-    <div style="display: inline-block">
-      <canvas baseChart
-      [data]="doughnutChartData"
-      [labels]="doughnutChartLabels"
-      [chartType]="doughnutChartType">
+    <div class='chart'>
+      <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
     </canvas>
 
 
-  </div>
+    </div>
 
-</div>
+  </div>

@@ -8,3 +8,30 @@ h1{
 .money{
   color:black;
 }
+.chart{
+  padding: 15px;
+  display: inline-block;
+}
+ul, li{
+  background-color: #fff9f9;
+}
+.slider-container{
+  padding-top: 40px;
+}
+.slider .slides{
+   background-color: #fff9f9;
+ }
+
+@media (max-width: 600px) {
+  h1 {
+font-size:2.5rem;
+ }
+ .slider{
+   max-height: 200px;
+   background-color: #fff9f9;
+ }
+
+li, ul{
+   max-height: 200px;
+ }
+}

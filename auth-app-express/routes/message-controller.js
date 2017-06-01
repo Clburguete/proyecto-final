@@ -9,37 +9,13 @@ const User = require("../model/user");
 const Message = require("../model/message");
 
 messageController.post(`/message/new`,authChecker, (req, res, next) => {
-
-
-        const {
-            from,
-            to,
-            content
-        } = req.body;
-
-        var newMessage = Message({
-            from,
-            to,
-            content
-        });
-
-        newMessage.save((err) => {
-            if (err) {
-                res.status(400).json({
-                    message: "Something went wrong"
-                });
-            } else {
-                req.login(newMessage, function(err) {
-                    if (err) {
-                        return res.status(500).json({
-                            message: 'something went wrong :('
-                        });
-                    }
-                    res.status(200).json(newMessage);
-                });
-            }
-        });
-
+        const {from,to,content} = req.body;
+        var newMessage = Message({from,to,content});
+        newMessage.save()
+          .then((message)=>res.status(200).json(message))
+          .catch(err => res.status(400).json({
+              message: "Something went wrong"
+          }));
 });
 
 messageController.get("/messages/:id", authChecker, function(req, res) {

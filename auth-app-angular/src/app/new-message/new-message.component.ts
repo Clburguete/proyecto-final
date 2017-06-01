@@ -3,6 +3,7 @@ import { SessionService } from '../services/session.service';
 import { MessageService } from '../services/messages.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 
 
@@ -21,11 +22,13 @@ export class NewMessageComponent implements OnInit {
   content:string;
 
   receiverId:any;
-  constructor(public userService: UserService, private route: ActivatedRoute,public session: SessionService, private messaging: MessageService) { }
+  constructor(public userService: UserService, private route: ActivatedRoute,public session: SessionService, private messaging: MessageService,private router: Router) { }
 
   ngOnInit() {
-    this.session.getLoginEmitter().subscribe(user => this.loggedUser=user)
-    this.loggedUser = this.session.loggedUser;
+    this.session.isLoggedIn().subscribe(user => {
+      this.loggedUser = user;
+    });
+
     this.route.params
       .subscribe((params)=>{
         this.receiverId = params['id'];
@@ -35,7 +38,6 @@ export class NewMessageComponent implements OnInit {
            (err) => this.errorUserCb(err)
          )
       })
-
   }
 
   create(){
@@ -46,10 +48,7 @@ export class NewMessageComponent implements OnInit {
       content: this.content
     }
     this.messaging.createMessage(newMessage)
-      .subscribe(
-        data => this.successCb(data),
-        err => this.errorCb(err)
-      )
+        .subscribe()
 }
 errorCb(err) {
   this.error = err;
@@ -58,7 +57,6 @@ errorCb(err) {
 
 successCb(data) {
   this.data = data;
-  console.log("SUCCESFUL MESSAGE",data)
   this.error = null;
 }
 errorUserCb(err) {
@@ -68,7 +66,6 @@ errorUserCb(err) {
 
 successUserCb(data) {
   this.receiver = data;
-  console.log("SUCCESFUL MESSAGE",data)
   this.error = null;
 }
 }

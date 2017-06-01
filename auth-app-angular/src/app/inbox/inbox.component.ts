@@ -19,8 +19,10 @@ export class InboxComponent implements OnInit {
   constructor(public session: SessionService, private inbox : MessageService, private route : ActivatedRoute) { }
 
   ngOnInit() {
-    this.session.getLoginEmitter().subscribe(user => this.loggedUser=user)
-    this.session.isLoggedIn().subscribe();
+    console.log("entraa",this.session.loggedUser);
+    this.session.isLoggedIn().subscribe(user => {
+      this.loggedUser = user;
+    });
     this.route.params
       .subscribe((params)=>{
         this.receiverId = params['id'];

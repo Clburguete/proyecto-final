@@ -43,7 +43,7 @@
   <label> How much $ do you need? </label>
   <input type="number" [(ngModel)]="StartupForm.budget" name="budget"/>
   <br>
-  <a (click)="create()" class="waves-effect waves-light btn"> Create your datasheet </a>
+  <a (click)="create()" [routerLink]="['/investors']" class="waves-effect waves-light btn"> Create your datasheet </a>
 
 </form>
 <p class="error"> {{ error }} </p>

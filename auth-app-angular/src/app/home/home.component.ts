@@ -13,15 +13,14 @@ export class HomeComponent implements OnInit {
   totalInvestment:number;
 
 
-  pieChartLabels: string[] =  ['Startups','Investors'];
-  pieChartData: number[] = [300, 500, 100];
-  pieChartType: string = 'doughnut';
-
-
-
-  doughnutChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
-  doughnutChartData: number[] = [350, 450, 100];
+  doughnutChartLabels: string[] =  ['Startups','Investors'];
+  doughnutChartData: number[] = [300, 500, 100];
+  doughnutChartColors: Array<any>  = [{ backgroundColor: ["#184242", '#edfff6', "#a4c73c", "#a4add3"],borderColor: ['rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0)','rgba(0,0,0,0)'] }];
   doughnutChartType: string = 'doughnut';
+
+
+
+
   constructor(private info : UserService) { }
 
   ngOnInit() {
@@ -39,7 +38,7 @@ export class HomeComponent implements OnInit {
       if(user.role==='startup') startList.push(user)
     })
 
-    this.pieChartData = [startList.length, invList.length]
+    this.doughnutChartData = [startList.length, invList.length]
 console.log('STARTUPS', startList)
 
 console.log('INVESTORS', invList)

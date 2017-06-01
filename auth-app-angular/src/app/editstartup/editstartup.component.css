@@ -1,0 +1,21 @@
+h2{
+  font-weight: bolder;
+}
+a{
+  background-color: #588c73;
+}
+[type="radio"]:checked + label:after{
+  background-color: #f9d0d6;
+  border: #f9d0d6;
+}
+
+input[type=number]:focus{
+  border-bottom: 1px solid maroon;
+box-shadow: 0 1px 0 0 maroon;
+}
+.waves-effect{
+
+    background-color: maroon;
+    float: right;
+
+}

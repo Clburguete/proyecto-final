@@ -1,33 +1,46 @@
-<div class="row">
-  <div class="col s12 m6 lg4 slider-container">
-    <div class="slider">
-      <ul class="slides">
-        <li>
-          <div>
-            <h1>Invest now, contribute to the future</h1>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h1 class='money'>{{totalInvestment | currency:'EUR':true}} currently looking to be invested</h1>
-          </div>
-        </li>
-      </ul>
-    </div>
+<div class="row main-container">
+  <div class="container">
 
-  </div>
-  <div class="col s12 m6 lg8">
-
-  </div>
-  <div class='chart'>
-    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType">
-      </canvas>
-
-    <div class='chart'>
-      <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
-    </canvas>
-
+    <div class="col s12 m6 lg4 slider-container">
+      <div class="slider">
+        <ul class="slides">
+          <li>
+            <div>
+              <h1>Invest now, contribute to the future</h1>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h1 class='money'>{{totalInvestment | currency:'EUR':true}} currently looking to be invested</h1>
+            </div>
+          </li>
+        </ul>
+      </div>
 
     </div>
+    <div class="image-container col s12 m6 lg8">
+      <img src="http://i.imgur.com/PFgrpAS.png" class='home-image' alt="">
+      <img src="http://i.imgur.com/lWb8ydi.png" class='home-image' alt="">
+
+      <h3>Join our early birds community and enjoy the ride</h3>
+
+    </div>
+
+
+
+    <div class="row">
+
+      <div  class='chart'>
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+        </canvas>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+
 
   </div>

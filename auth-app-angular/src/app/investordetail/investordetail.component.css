@@ -1,7 +1,9 @@
 .col{
   padding: 15px;
 }
-
+.card{
+  background-color: #edfff6;
+}
 h2 {
   color: maroon;
   padding: 15px;
@@ -16,6 +18,7 @@ h5{
   font-weight: lighter;
 }
 .waves-effect{
+  margin: 4px;
   float: right;
   background-color: #e1d1d1;
   color: maroon;

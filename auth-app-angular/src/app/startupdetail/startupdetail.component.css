@@ -11,11 +11,15 @@ h2 {
   font-size: 1.75rem;
   color: #36654e;
 }
+.card{
+  background-color: #edfff6;
+}
 h5{
   padding: 1.44rem;
   font-weight: lighter;
 }
 .waves-effect{
+  margin: 4px;
   float: right;
   background-color: #e1d1d1;
   color: maroon;

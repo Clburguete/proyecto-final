@@ -1,19 +1,21 @@
 
+<div class="container">
+  <form >
+    <h2> Login</h2>
+    <p class="error"> {{ error }} </p>
 
-<form >
-  <h2> Login</h2>
-  <p class="error"> {{ error }} </p>
-  
-  <br>
+    <br>
 
-  <label> Username </label>
-  <input type="text" [(ngModel)]="formInfo.username" name="username"/>
-  <br>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
+    <label> Username </label>
+    <input type="text" [(ngModel)]="formInfo.username" name="username"/>
+    <br>
+    <label> Password </label>
+    <input type="password" [(ngModel)]="formInfo.password" name="password"/>
 
 
 
-  <a (click)="login()" class="waves-effect waves-light btn"> login </a>
+    <a (click)="login()" class="waves-effect waves-light btn"> login </a>
 
-</form>
+  </form>
+
+</div>

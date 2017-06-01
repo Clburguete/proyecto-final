@@ -1,52 +1,55 @@
-<br><br>
-<div *ngIf="loggedUser" class="">
-  <form >
-    <h2> {{loggedUser.username | capitalize }}, edit your profile </h2>
-    <div class="col s6">
-      <label for="">What connections can you offer?</label>
+<div class="container">
+  <br><br>
+  <div *ngIf="loggedUser" class="">
+    <form >
+      <h2> {{loggedUser.username | capitalize }}, edit your profile </h2>
+      <div class="col s6">
+        <label for="">What connections can you offer?</label>
+        <p>
+          <input name="connections" type="radio" id="connections1" [(ngModel)]="InvestorForm.connections" value="CTO" [attr.disabled]="isDisabled?true:null"/>
+          <label for="connections1">CTO</label>
+
+          <input name="connections" type="radio" id="connections2" [(ngModel)]="InvestorForm.connections" value="Investors" [attr.disabled]="isDisabled?true:null"/>
+          <label for="connections2">Investors</label>
+
+          <input name="connections" type="radio" id="connections3" [(ngModel)]="InvestorForm.connections" value="Developers" [attr.disabled]="isDisabled?true:null"/>
+          <label for="connections3">Developers</label>
+
+          <input name="connections" type="radio" id="connections4" [(ngModel)]="InvestorForm.connections" value="Counseling" [attr.disabled]="isDisabled?true:null"/>
+          <label for="connections4">Counseling</label>
+        </p>
+        <label for="">What is your area of interest?</label>
+        <p>
+          <input name="interests" type="radio" id="interests1" [(ngModel)]="InvestorForm.interests" value="technology" [attr.disabled]="isDisabled?true:null"/>
+          <label for="interests1">Technology</label>
+
+          <input name="interests" type="radio" id="interests2" [(ngModel)]="InvestorForm.interests" value="services" [attr.disabled]="isDisabled?true:null"/>
+          <label for="interests2">Services</label>
+
+          <input name="interests" type="radio" id="interests3" [(ngModel)]="InvestorForm.interests" value="hardware" [attr.disabled]="isDisabled?true:null"/>
+          <label for="interests3">Hardware</label>
+        </p>
+      </div>
+      <br>
+      <label> How much $ are you willing to invest? </label>
+      <input type="number" [(ngModel)]="InvestorForm.budget" name="budget"/>
+      <br>
+      <label for="">When do you expect profits from your investment?</label>
       <p>
-        <input name="connections" type="radio" id="connections1" [(ngModel)]="InvestorForm.connections" value="CTO" [attr.disabled]="isDisabled?true:null"/>
-        <label for="connections1">CTO</label>
+        <input name="investreturn" type="radio" id="return1" [(ngModel)]="InvestorForm.investreturn" value="short" [attr.disabled]="isDisabled?true:null"/>
+        <label for="return1">Short Term</label>
 
-        <input name="connections" type="radio" id="connections2" [(ngModel)]="InvestorForm.connections" value="Investors" [attr.disabled]="isDisabled?true:null"/>
-        <label for="connections2">Investors</label>
+        <input name="investreturn" type="radio" id="return2" [(ngModel)]="InvestorForm.investreturn" value="medium" [attr.disabled]="isDisabled?true:null"/>
+        <label for="return2">Medium Term</label>
 
-        <input name="connections" type="radio" id="connections3" [(ngModel)]="InvestorForm.connections" value="Developers" [attr.disabled]="isDisabled?true:null"/>
-        <label for="connections3">Developers</label>
-
-        <input name="connections" type="radio" id="connections4" [(ngModel)]="InvestorForm.connections" value="Counseling" [attr.disabled]="isDisabled?true:null"/>
-        <label for="connections4">Counseling</label>
+        <input name="investreturn" type="radio" id="return3" [(ngModel)]="InvestorForm.investreturn" value="long" [attr.disabled]="isDisabled?true:null"/>
+        <label for="return3">Long Term</label>
       </p>
-      <label for="">What is your area of interest?</label>
-      <p>
-        <input name="interests" type="radio" id="interests1" [(ngModel)]="InvestorForm.interests" value="technology" [attr.disabled]="isDisabled?true:null"/>
-        <label for="interests1">Technology</label>
+      <a (click)="update()" [routerLink] = "['/startups']" class="waves-effect waves-light btn"> Create your datasheet </a>
 
-        <input name="interests" type="radio" id="interests2" [(ngModel)]="InvestorForm.interests" value="services" [attr.disabled]="isDisabled?true:null"/>
-        <label for="interests2">Services</label>
+    </form>
+  </div>
 
-        <input name="interests" type="radio" id="interests3" [(ngModel)]="InvestorForm.interests" value="hardware" [attr.disabled]="isDisabled?true:null"/>
-        <label for="interests3">Hardware</label>
-      </p>
-    </div>
-    <br>
-    <label> How much $ are you willing to invest? </label>
-    <input type="number" [(ngModel)]="InvestorForm.budget" name="budget"/>
-    <br>
-    <label for="">When do you expect profits from your investment?</label>
-    <p>
-      <input name="investreturn" type="radio" id="return1" [(ngModel)]="InvestorForm.investreturn" value="short" [attr.disabled]="isDisabled?true:null"/>
-      <label for="return1">Short Term</label>
+  <p class="error"> {{ error }} </p>
 
-      <input name="investreturn" type="radio" id="return2" [(ngModel)]="InvestorForm.investreturn" value="medium" [attr.disabled]="isDisabled?true:null"/>
-      <label for="return2">Medium Term</label>
-
-      <input name="investreturn" type="radio" id="return3" [(ngModel)]="InvestorForm.investreturn" value="long" [attr.disabled]="isDisabled?true:null"/>
-      <label for="return3">Long Term</label>
-    </p>
-    <a (click)="update()" [routerLink] = "['/startups']" class="waves-effect waves-light btn"> Create your datasheet </a>
-
-  </form>
 </div>
-
-<p class="error"> {{ error }} </p>

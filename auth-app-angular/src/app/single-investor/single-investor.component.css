@@ -10,11 +10,11 @@ ul{
 .collection-item{
   margin-bottom: 15px;
   border-style: none;
-  background-color: white;
+  background-color: #edfff6;
 
 }
 .collection.with-header .collection-header{
-  background-color: #ffd8de;
+  background: linear-gradient(0deg, rgba(240,221,223,0), rgba(240,221,223,1));
 }
 .waves-effect{
   margin-right: 10px;

@@ -1,17 +1,20 @@
-<div class="row">
-  <div class="title-container">
-    <a class ='page title' [routerLink] = "['/startups']">
-      The entrepeneurs
-    </a>
-    <span class='title'> / </span>
-    <a class ='title' [routerLink] = "['/investors']">
-      The investors
-    </a>
+<div class="container">
+  <div class="row">
+    <div class="row title-container">
+      <a class ='page title' [routerLink] = "['/startups']">
+        The entrepeneurs
+      </a>
+      <span class='title'> / </span>
+      <a class ='title' [routerLink] = "['/investors']">
+        The investors
+      </a>
 
+    </div>
   </div>
-</div>
   <div *ngFor= "let startup of startupList">
 
-      <single-startup  [startup]='startup'></single-startup>
+    <single-startup  [startup]='startup'></single-startup>
 
   </div>
+
+</div>

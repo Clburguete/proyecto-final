@@ -16,7 +16,9 @@ export class StartupformComponent implements OnInit {
            category: '',
            lookingfor: '',
            investinterest: '',
-           budget:''
+           budget:'',
+           lastrevenue: [],
+           expectedrevenue:[]
          };
          isDisabled: boolean;
          error: string;
@@ -30,7 +32,8 @@ export class StartupformComponent implements OnInit {
 
   }
   create(){
-    console.log("creating...")
+
+    console.log( this.StartupForm)
     this.data.startupFormCreate(this.StartupForm, this.loggedUser._id)
       .subscribe(
         (data) => {

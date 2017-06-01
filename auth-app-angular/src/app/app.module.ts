@@ -30,6 +30,7 @@ import { StartupformComponent } from './startupform/startupform.component';
 import { NewMessageComponent } from './new-message/new-message.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { HomeComponent } from './home/home.component';
+import { EditstartupComponent } from './editstartup/editstartup.component';
 
 
 
@@ -51,7 +52,9 @@ import { HomeComponent } from './home/home.component';
     StartupformComponent,
     NewMessageComponent,
     InboxComponent,
-    HomeComponent
+    HomeComponent,
+    EditstartupComponent
+
   ],
   imports: [
     BrowserModule,

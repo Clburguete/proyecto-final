@@ -59,4 +59,9 @@ startupFormRelate(userId, formId){
       })
       .catch(this.handleError)
   }
+  startupUpdate(form, userId){
+    return this.http.post(`${this.BASEURL}/edit/startupdata`,[form, userId], this.options)
+      .map((res)=> res.json())
+      .catch(this.handleError);
+  }
 }

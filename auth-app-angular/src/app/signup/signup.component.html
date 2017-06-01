@@ -1,27 +1,30 @@
-<form >
-  <h2> Signup </h2>
-  <p class="error"> {{ error }} </p>
-  <div class="col s6">
-    <label for="">What are you?</label>
-    <p>
-      <input name="role" type="radio" id="test1" [(ngModel)]="formInfo.role" value="investor" [attr.disabled]="isDisabled?true:null"/>
-      <label for="test1">Investor</label>
+<div class="container">
 
-      <input name="role" type="radio" id="test2" [(ngModel)]="formInfo.role" value="startup" [attr.disabled]="isDisabled?true:null"/>
-      <label for="test2">Startup</label>
-    </p>
-  </div>
-  <br>
+  <form >
+    <h2> Signup </h2>
+    <p class="error"> {{ error }} </p>
+    <div class="col s6">
+      <label for="">What are you?</label>
+      <p>
+        <input name="role" type="radio" id="test1" [(ngModel)]="formInfo.role" value="investor" [attr.disabled]="isDisabled?true:null"/>
+        <label for="test1">Investor</label>
 
-  <label> Username </label>
-  <input type="text" [(ngModel)]="formInfo.username" name="username"/>
-  <br>
-  <label> Password </label>
-  <input type="password" [(ngModel)]="formInfo.password" name="password"/>
+        <input name="role" type="radio" id="test2" [(ngModel)]="formInfo.role" value="startup" [attr.disabled]="isDisabled?true:null"/>
+        <label for="test2">Startup</label>
+      </p>
+    </div>
+    <br>
+
+    <label> Username </label>
+    <input type="text" [(ngModel)]="formInfo.username" name="username"/>
+    <br>
+    <label> Password </label>
+    <input type="password" [(ngModel)]="formInfo.password" name="password"/>
 
 
 
 
-  <a (click)="signup()" class="waves-effect waves-light btn"> signup </a>
+    <a (click)="signup()" class="waves-effect waves-light btn"> signup </a>
 
-</form>
+  </form>
+</div>

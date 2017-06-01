@@ -18,6 +18,8 @@ const StartupDataSchema = new Schema({
       enum:["short", "medium", "long"]
     },
     budget: Number,
+    lastrevenue:[Number],
+    expectedrevenue:[Number]
 }, {
   timestamps: {
     createdAt: "created_at",

@@ -3,9 +3,10 @@
 }
 .collection-item{
   margin-bottom: 15px;
+  background-color: #edfff6;
 }
 .collection.with-header .collection-header{
-  background-color: #f9d0d6;
+   background: linear-gradient(0deg, rgba(240,221,223,0), rgba(240,221,223,1));
 }
 .waves-effect{
   margin-right: 10px;
@@ -14,13 +15,18 @@
   color: maroon;
 }
 .money{
-  color: darkblue;
+  color: #184242;
   font-weight: bolder;
   text-align: right;
 }
 .username{
   font-weight: 900;
+  color: #184242;
 }
 .light{
   font-weight: lighter;
+}
+.leftlight{
+  font-weight: lighter;
+  text-align: right;
 }

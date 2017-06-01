@@ -1,4 +1,4 @@
-<div class="" *ngIf="startup">
+<div class="container" *ngIf="startup">
 
 
 
@@ -35,9 +35,9 @@
         </div>
       </div>
     </div>
+    <a *ngIf="startup && loggedUser && loggedUser._id === startup._id"[routerLink]="['/startups',startup._id,'edit']" class="waves-effect waves-light btn"> Edit your profile </a>
+    <a [routerLink]="['../']" class="waves-effect waves-light btn"> Back to full list </a>
+    <a *ngIf='startup' [routerLink]="['/message',startup._id]" class="waves-effect waves-light btn"> Contact </a>
   </div>
 
 </div>
-<a *ngIf="startup && loggedUser && loggedUser._id === startup._id"[routerLink]="['../']" class="waves-effect waves-light btn"> Edit your profile </a>
-<a [routerLink]="['../']" class="waves-effect waves-light btn"> Back to full list </a>
-<a *ngIf='startup' [routerLink]="['/message',startup._id]" class="waves-effect waves-light btn"> Contact! </a>

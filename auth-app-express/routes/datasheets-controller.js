@@ -8,22 +8,28 @@ const InvestorData = require("../model/inversion-data");
 const StartupData = require("../model/startup-data");
 
 datasheetController.post("/signup/investordata", (req, res, next) => {
+
     if (req.isAuthenticated()) {
         const {
             connections,
             interests,
             budget,
             investreturn
+
         } = req.body;
 
         var newInvData = InvestorData({
             connections,
             interests,
             budget,
-            investreturn
+            investreturn,
+
         });
         newInvData.save()
-          .then((data)=>res.status(200).json(data))
+          .then((data)=> {
+            res.status(200).json(data);
+            }
+          )
           .catch(err => res.status(400).json({
               message: "Something went wrong"
           }));
@@ -40,14 +46,18 @@ datasheetController.post("/signup/startupdata", (req, res, next) => {
         category,
         lookingfor,
         investinterest,
-        budget
+        budget,
+        lastrevenue,
+        expectedrevenue
     } = req.body;
 
     var newStartupData = StartupData({
         category,
         lookingfor,
         investinterest,
-        budget
+        budget,
+        lastrevenue,
+        expectedrevenue
     });
 
     newStartupData.save()
@@ -107,7 +117,7 @@ datasheetController.post("/edit/startupdata", (req, res, next) => {
   let newForm = req.body[0];
 
   User.findById(query, (err,success)=>{
-    StartupData.findByIdAndUpdate(success.inv_datasheets, {$set:newForm} ,(err,updatedForm)=>{
+    StartupData.findByIdAndUpdate(success.start_datasheets, {$set:newForm} ,(err,updatedForm)=>{
         if (err) {
           return next(err);
         }

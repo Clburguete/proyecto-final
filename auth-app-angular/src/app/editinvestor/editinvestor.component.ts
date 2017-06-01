@@ -17,13 +17,13 @@ export class EditinvestorComponent implements OnInit {
     budget: '',
     investreturn: ''
   };
+  isDisabled:boolean;
   data:any;
   constructor(private session: SessionService, private dataService: DatasheetsService) { }
 
   ngOnInit() {
     this.session.getLoginEmitter().subscribe(user => this.loggedUser=user)
     this.loggedUser = this.session.loggedUser;
-    console.log("USERRRRRR", this.loggedUser)
   }
 
 update(){

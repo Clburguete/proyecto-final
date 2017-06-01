@@ -7,7 +7,7 @@ h1{
   color: maroon;
 }
 .title{
-  color: lightgrey;
+  color: #e1d1d1;
   display: inline;
   font-weight: bolder;
   font-size: 3.8rem;
@@ -15,14 +15,14 @@ h1{
     margin: 2.1rem 0 1.68rem 0;
 }
 .page{
-  color:	#588c73;
+  color:	maroon;
 }
 
 .title:hover{
-  color: #8B0000;
+  color: #2b7b7b;
 
 }
 .title-container{
 margin: auto;
-padding: 40px;
+padding: 30px;
 }

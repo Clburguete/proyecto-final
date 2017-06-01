@@ -26,18 +26,21 @@
 
         </div>
         <div class="row">
+          <div class="container">
 
-          <div class="chart-container col s12 m8 lg8">
-            <div style="display: block;">
-              <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+            <div class="chart-container col s12 m8 lg8">
+              <div style="display: block;">
+                <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+              </div>
+
             </div>
 
+            <div class="col s12 m4 lg4">
+              <h5 for="">Investment goal</h5>
+              <h4 class="money">{{startup.start_datasheets.budget | currency:'EUR':true}}</h4>
+            </div>
           </div>
 
-          <div class="col s12 m4 lg4">
-            <h5 for="">Investment goal</h5>
-            <h4 class="money">{{startup.start_datasheets.budget | currency:'EUR':true}}</h4>
-          </div>
 
 
 

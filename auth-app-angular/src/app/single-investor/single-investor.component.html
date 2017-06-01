@@ -2,12 +2,12 @@
   <div class="row" *ngIf="investor && investor.role==='investor'">
     <ul class= "collection with-header">
       <li class="collection-header"><h5>{{investor.username | capitalize}}</h5></li>
+      <li class="collection-item"><h5><span class='light'>Interested in: </span>{{investor.inv_datasheets.interests | capitalize}}</h5></li>
       <li class="collection-item">
-        <p>Willing to invest:</p>
-        <h4>{{investor.inv_datasheets.budget | currency:'EUR':true}} <span class="money"> {{investor.role}}</span></h4>
+        <h5 class='invest light'>Willing to invest:</h5>
+        <h4>{{investor.inv_datasheets.budget | currency:'EUR':true}} </h4>
 
       </li>
-
 
 
     </ul>

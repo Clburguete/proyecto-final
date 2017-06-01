@@ -8,9 +8,11 @@ h2 {
   color: maroon;
   padding: 15px;
   font-weight: 600;
+  text-align: center;
+  padding-top: 10px;
 }
 .money{
-  font-size: 1.75rem;
+  
   color: #36654e;
 }
 h5{
@@ -33,4 +35,7 @@ h4{
 label{
   font-size: 17px;
   padding-left: 15px;
+}
+.invest-container{
+  text-align: center;
 }

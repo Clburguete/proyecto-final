@@ -6,12 +6,14 @@ h2 {
   color: maroon;
   padding: 15px;
   font-weight: 600;
+  text-align: center;
+  padding-top: 10px;
 }
 .chart-container{
   padding:35px;
 }
 .money{
-  font-size: 1.75rem;
+  font-weight: bolder;
   color: #36654e;
 }
 .card{

@@ -50,7 +50,7 @@
 
   </div>
 <div class="row link-contain">
-  <a class ='links' [routerLink] = "['/signup']">
+  <a class ='links' *ngIf='!loggedUser' [routerLink] = "['/signup']">
     Interested? Sign up now
   </a>
 </div>

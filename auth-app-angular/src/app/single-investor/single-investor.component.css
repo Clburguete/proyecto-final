@@ -7,8 +7,12 @@ ul{
 
 
 }
+h4, .invest{
+  text-align: right;
+}
+
 .collection-item{
-  margin-bottom: 15px;
+
   border-style: none;
   background-color: #edfff6;
 
@@ -27,4 +31,7 @@ ul{
   color: darkblue;
   font-weight: bolder;
   text-align: right;
+}
+.light{
+  font-weight: lighter;
 }

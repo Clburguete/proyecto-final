@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service'
+import { SessionService } from '../services/session.service';
 
 declare var $: any;
 
@@ -9,7 +10,7 @@ declare var $: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  loggedUser:any;
   investorList:any;
   error:any;
   totalInvestment:number;
@@ -50,9 +51,11 @@ export class HomeComponent implements OnInit {
 
   chartDisabled:boolean = true;
 
-  constructor(private info : UserService) { }
+  constructor(private info : UserService, public session: SessionService) { }
 
   ngOnInit() {
+    this.loggedUser = this.session.loggedUser
+    this.session.getLoginEmitter().subscribe(user=> this.loggedUser = user)
     $('.slider').slider({indicators: false, interval: 2500, transition: 2000});
 
     this.info.homeShowAll()

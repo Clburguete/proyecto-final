@@ -7,19 +7,23 @@
       <div class="card darken-1">
         <span class="card-title"><h2>{{startup.username | capitalize}}</h2></span>
         <div class="row">
+          <div class="container">
 
-          <div class="col s12 m4 lg4">
-            <h5 for="">Industry</h5>
-            <h4>{{startup.start_datasheets.category | capitalize}}</h4>
+            <div class="col s12 m4 lg4">
+              <h5 for="">Industry</h5>
+              <h4>{{startup.start_datasheets.category | capitalize}}</h4>
+            </div>
+            <div class="col s12 m4 lg4">
+              <h5 for="">Looking for</h5>
+              <h4>{{startup.start_datasheets.lookingfor}}</h4>
+            </div>
+            <div class="col s12 m4 lg4">
+              <h5 for="">What kind of investment are we looking for?</h5>
+              <h4>{{startup.start_datasheets.investinterest| capitalize}} term</h4>
+            </div>
+
           </div>
-          <div class="col s12 m4 lg4">
-            <h5 for="">Currently looking for</h5>
-            <h4>{{startup.start_datasheets.lookingfor}}</h4>
-          </div>
-          <div class="col s12 m4 lg4">
-            <h5 for="">Investment goal</h5>
-            <h4 class="money">{{startup.start_datasheets.budget | currency:'EUR':true}}</h4>
-          </div>
+
         </div>
         <div class="row">
 
@@ -31,9 +35,12 @@
           </div>
 
           <div class="col s12 m4 lg4">
-            <h5 for="">What kind of investment are we looking for?</h5>
-            <h4>{{startup.start_datasheets.investinterest| capitalize}} term</h4>
+            <h5 for="">Investment goal</h5>
+            <h4 class="money">{{startup.start_datasheets.budget | currency:'EUR':true}}</h4>
           </div>
+
+
+
         </div>
       </div>
     </div>

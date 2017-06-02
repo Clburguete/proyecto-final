@@ -91,6 +91,7 @@ console.log('STARTUPS', startList)
       if(investor.inv_datasheets.interests ==='services') servInv.push(investor);
       if(investor.inv_datasheets.interests ==='hardware') hardInv.push(investor);
     })
+
     this.barChartData[0].data[0]= techInv.length
     this.barChartData[0].data[1]= servInv.length
     this.barChartData[0].data[2]= hardInv.length
@@ -99,7 +100,6 @@ console.log('STARTUPS', startList)
     this.barChartData[1].data[1]= servStart.length
     this.barChartData[1].data[2]= hardStart.length
 
-    this.chartDisabled = false;
 
 
 
@@ -109,6 +109,9 @@ console.log('servInv: ', servInv)
 console.log('servStrt: ', servStart)
 console.log('hardInv: ', hardInv)
 console.log('hardStart: ',hardStart)
+  this.chartDisabled = false;
+
+
 }
 
 

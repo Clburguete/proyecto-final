@@ -48,7 +48,7 @@ app.use(session({
   name: 'investNow',
   resave: true,
   saveUninitialized: true,
-  cookie : { httpOnly: true, maxAge: 60000 },
+  cookie : { httpOnly: true},
   store: new MongoConnect({mongooseConnection: mongoose.connection, ttl: 24 * 60 *60})
 }));
 
